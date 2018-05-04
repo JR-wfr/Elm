@@ -28,8 +28,13 @@
         </li>
       </ul>
     </div>
-    <div class>
-      <h4 class="wfr-all-city">A<span>(按字母排序)</span></h4>
+    <div class="wfr-all-city">
+        <ul v-for="(value,key) in groupCity"  class="wfr-Part-city">
+          <h4 class="wfr-all-city1">{{key}}</h4>
+          <li v-for="arr1 in value" class="wfr-city-Port">
+              {{arr1.name}}
+          </li>
+        </ul>
     </div>
   </div>
 </template>
@@ -39,23 +44,39 @@
   import axios from 'axios'
   import VueAxios from 'vue-axios'
   Vue.use(VueAxios, axios)
-  var api = "http://cangdu.org:8001/v1/cities?type=guess"
-  var api1 = "http://cangdu.org:8001/v1/cities?type=hot"
+  var api = "http://cangdu.org:8001/v1/cities?type=guess";
+  var api1 = "http://cangdu.org:8001/v1/cities?type=hot";
+  var api2 = "http://cangdu.org:8001/v1/cities?type=group"
   export default {
     name: "HomePage",
     data: function () {
       return {
         city: {},
-        hotCity: []
+        hotCity: [],
+        groupCity:{},
+
       }
     },
-    created() {
+    created(){
       this.axios.get(api).then((responets) => {
         this.city = responets.data
       }),
         this.axios.get(api1).then((responets) => {
           this.hotCity = responets.data
-        })
+        }),
+      this.axios.get(api2).then((responets)=>{
+        this.groupCity=responets.data
+        this.groupCity=objKeySort(this.groupCity)
+        function objKeySort(obj) {
+          var newkey = Object.keys(obj).sort();
+          var newObj = {};
+          for (var i = 0; i < newkey.length; i++) {
+            newObj[newkey[i]] = obj[newkey[i]];
+          }
+          return newObj;
+        }
+        console.log(this.groupCity)
+      })
     }
   }
 </script>
@@ -169,17 +190,28 @@
     color:#3190e8;
   }
   .wfr-all-city{
+    margin-top:0.6rem;
+    border-top: 2px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+    background:#fff;
+  }
+  .wfr-all-city1{
+    border-top:1px solid #ccc;
     color: #666;
     font-size:0.55rem;
     font-weight:200;
-    margin-left:0.4rem;
-    border-top: 2px solid #e4e4e4;
-    border-bottom: 1px solid #e4e4e4;
+    padding-left:0.4rem;
     line-height:1.5rem;
+    border-bottom:1px solid #ccc;
   }
-  .wfr-all-city span{
-    margin-left:0.5rem;
-    font-size: .475rem;
-    color: #999;
+  .wfr-city-Port{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size:0.5rem;
+    line-height:1.6rem;
+    text-align:center;
+    width: 25%;
+    float:left;
   }
 </style>
