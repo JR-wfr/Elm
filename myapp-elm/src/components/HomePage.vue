@@ -20,7 +20,7 @@
       <h4 class="wfr-hot-city">热门城市</h4>
       <ul class="wfr-hot-link">
         <li v-for="arr in hotCity" class="wfr-hot-list">
-          <router-link :to="{name:'city',params:{name:arr.name,id:arr.id}}">
+          <router-link :to="{name:'city',params:{id:arr.id,name:arr.name}}">
             <span>
                {{arr.name}}
             </span>
@@ -29,18 +29,19 @@
       </ul>
     </div>
     <div class="wfr-all-city">
-        <ul v-for="(value,key) in groupCity"  class="wfr-Part-city">
-          <li class="wfr-list">
+      <span class="wfr-city-text">(按字母排序)</span>
+      <ul v-for="(value,key) in groupCity"  class="wfr-Part-city">
+        <li class="wfr-list">
           <h4 class="wfr-all-city1">{{key}}</h4>
-            <ul class="wfr-ul">
-                <li v-for="arr1 in value" class="wfr-city-Port">
-                  <router-link :to="{name:'city',params:{name:arr1.name,id:arr1.id}}" class="wfr-all-city-list">
-                      {{arr1.name}}
-                  </router-link>
-                </li>
-            </ul>
-          </li>
-        </ul>
+          <ul class="wfr-ul">
+            <li v-for="arr1 in value" class="wfr-city-Port">
+              <router-link :to="{name:'city',params:{name:arr1.name,id:arr1.id}}" class="wfr-all-city-list">
+                {{arr1.name}}
+              </router-link>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -49,6 +50,7 @@
   import Vue from "vue"
   import axios from 'axios'
   import VueAxios from 'vue-axios'
+
   Vue.use(VueAxios, axios)
   var api = "http://cangdu.org:8001/v1/cities?type=guess";
   var api1 = "http://cangdu.org:8001/v1/cities?type=hot";
@@ -58,40 +60,42 @@
     data: function () {
       return {
         city: {},
-        hotCity: '',
-        groupCity:{},
+        hotCity: [],
+        groupCity: {},
 
       }
     },
-    created(){
+    created() {
       this.axios.get(api).then((responets) => {
         this.city = responets.data
       }),
         this.axios.get(api1).then((responets) => {
           this.hotCity = responets.data
         }),
-      this.axios.get(api2).then((responets)=>{
-        this.groupCity=responets.data
-        this.groupCity=objKeySort(this.groupCity)
-        function objKeySort(obj) {
-          var newkey = Object.keys(obj).sort();
-          var newObj = {};
-          for (var i = 0; i < newkey.length; i++) {
-            newObj[newkey[i]] = obj[newkey[i]];
+        this.axios.get(api2).then((responets) => {
+          this.groupCity = responets.data
+          this.groupCity = objKeySort(this.groupCity)
+
+          function objKeySort(obj) {
+            var newkey = Object.keys(obj).sort();
+            var newObj = {};
+            for (var i = 0; i < newkey.length; i++) {
+              newObj[newkey[i]] = obj[newkey[i]];
+            }
+            return newObj;
           }
-          return newObj;
-        }
-        console.log(this.groupCity)
-      })
+
+          console.log(this.groupCity)
+        })
     }
   }
 </script>
 
 <style scoped>
-  *{
+  * {
     box-sizing: border-box;
   }
-  .body{
+  .body {
     width: 100%;
     background-color: #f5f5f5;
   }
@@ -139,14 +143,12 @@
     color: #666;
     font-weight: 200;
   }
-
   .wfr-nav2 {
     margin-left: 1rem;
     font-weigh: 800;
     font-size: 0.55rem;
     color: #9f9f9f;
   }
-
   .wfr-city {
     background-color: #fff;
     display: flex;
@@ -157,16 +159,13 @@
     border-top: 1px solid #e4e4e4;
     border-bottom: 2px solid #e4e4e4;
   }
-
   .wfr-city-name {
     color: #3190e8;
     font-weight: 200;
   }
-
   .wfr-city-link {
     color: #ccc;
   }
-
   .wfr-hot-city {
     background-color: #fff;
     margin-top: 0.5rem;
@@ -177,27 +176,37 @@
     border-top: 2px solid #e4e4e4;
     border-bottom: 1px solid #e4e4e4;
   }
-  .wfr-hot-link{
-    overflow:hidden;
+  .wfr-hot-link {
+    overflow: hidden;
   }
-  .wfr-hot-list{
-    border-bottom:1px solid #e4e4e4;
-    border-right:1px solid #e4e4e4;
-    background-color:#fff;
-    font-size:0.2rem;
-    line-height:1.6rem;
-    text-align:center;
+  .wfr-hot-list {
+    border-bottom: 1px solid #e4e4e4;
+    border-right: 1px solid #e4e4e4;
+    background-color: #fff;
+    font-size: 0.2rem;
+    line-height: 1.6rem;
+    text-align: center;
     width: 25%;
-    float:left;
+    float: left;
   }
-  .wfr-hot-list span{
-    fonu-weight:200;
-    color:#3190e8;
+  .wfr-hot-list span {
+    fonu-weight: 200;
+    color: #3190e8;
   }
   .wfr-all-city{
+    position:relative;
     margin-top:0.6rem;
     border-top: 2px solid #e4e4e4;
     border-bottom: 1px solid #e4e4e4;
+  }
+  .wfr-city-text{
+    color:#999;
+    font-weight:150;
+    font-size:0.55rem;
+    position:absolute;
+    left:1.6rem;
+    top:0.5rem;
+
   }
   .wfr-all-city1{
     border-top: 1px solid #e4e4e4;
@@ -208,6 +217,7 @@
     line-height:1.5rem;
     text-indent: .45rem;
     border-bottom: 1px solid #e4e4e4;
+
   }
   .wfr-city-Port{
     overflow: hidden;
@@ -223,7 +233,6 @@
     border-bottom:1px solid #e4e4e4;
     border-right:1px solid #e4e4e4;
   }
-
   .wfr-list{
     background-color: #fff;
     border-bottom: 1px solid #e4e4e4;
