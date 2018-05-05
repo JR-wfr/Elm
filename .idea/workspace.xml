@@ -115,10 +115,10 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/myapp-elm/node_modules" />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="704" />
-    <option name="y" value="23" />
-    <option name="width" value="1547" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="592" />
+    <option name="y" value="28" />
+    <option name="width" value="1310" />
     <option name="height" value="945" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
