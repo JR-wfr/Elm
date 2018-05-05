@@ -20,7 +20,7 @@
       <h4 class="wfr-hot-city">热门城市</h4>
       <ul class="wfr-hot-link">
         <li v-for="arr in hotCity" class="wfr-hot-list">
-          <router-link :to="{name:'hotCity',params:{name:hotCity.name}}">
+          <router-link :to="{name:'city',params:{name:arr.name,id:arr.id}}">
             <span>
                {{arr.name}}
             </span>
@@ -30,9 +30,15 @@
     </div>
     <div class="wfr-all-city">
         <ul v-for="(value,key) in groupCity"  class="wfr-Part-city">
+          <li class="wfr-list">
           <h4 class="wfr-all-city1">{{key}}</h4>
-          <li v-for="arr1 in value" class="wfr-city-Port">
-              {{arr1.name}}
+            <ul class="wfr-ul">
+                <li v-for="arr1 in value" class="wfr-city-Port">
+                  <router-link :to="{name:'city',params:{name:arr1.name,id:arr1.id}}" class="wfr-all-city-list">
+                      {{arr1.name}}
+                  </router-link>
+                </li>
+            </ul>
           </li>
         </ul>
     </div>
@@ -52,7 +58,7 @@
     data: function () {
       return {
         city: {},
-        hotCity: [],
+        hotCity: '',
         groupCity:{},
 
       }
@@ -87,7 +93,6 @@
   }
   .body{
     width: 100%;
-    height: 100%;
     background-color: #f5f5f5;
   }
   .heard-top {
@@ -193,25 +198,42 @@
     margin-top:0.6rem;
     border-top: 2px solid #e4e4e4;
     border-bottom: 1px solid #e4e4e4;
-    background:#fff;
   }
   .wfr-all-city1{
-    border-top:1px solid #ccc;
+    border-top: 1px solid #e4e4e4;
     color: #666;
     font-size:0.55rem;
     font-weight:200;
     padding-left:0.4rem;
     line-height:1.5rem;
-    border-bottom:1px solid #ccc;
+    text-indent: .45rem;
+    border-bottom: 1px solid #e4e4e4;
   }
   .wfr-city-Port{
-    text-overflow: ellipsis;
     overflow: hidden;
+    text-overflow: ellipsis;
     white-space: nowrap;
     font-size:0.5rem;
     line-height:1.6rem;
     text-align:center;
     width: 25%;
     float:left;
+    color: #666;
+    font-weight:200;
+    border-bottom:1px solid #e4e4e4;
+    border-right:1px solid #e4e4e4;
+  }
+
+  .wfr-list{
+    background-color: #fff;
+    border-bottom: 1px solid #e4e4e4;
+    margin-bottom:0.5rem;
+  }
+  .wfr-ul{
+    overflow: hidden;
+    zoom:1;
+  }
+  .wfr-all-city-list{
+    color:#666;
   }
 </style>
