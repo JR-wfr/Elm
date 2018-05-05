@@ -10,10 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-<<<<<<< HEAD
     "axios": "^0.18.0",
-=======
->>>>>>> feature/ttx
     "element-ui": "^2.3.7",
     "vue": "^2.5.2",
     "vue-axios": "^2.1.1",
