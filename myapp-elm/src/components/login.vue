@@ -7,7 +7,6 @@
         <svg class="ttx_head_sev"   xmlns="http://www.w3.org/2000/svg" version="1.1">
           <a href="http://localhost:8080/#/">
             <polyline points="12,18 4,9 12,0" style="fill: none; stroke: rgb(255, 255, 255);stroke-width: 2px;">
-
             </polyline>
           </a>
 
@@ -22,7 +21,6 @@
       <div class="ttx_input_container">
         <input  class="ttx_index1" type="text" placeholder="账号">
       </div>
-
       <div class="ttx_input_container">
         <input class="ttx_index1" type="text" placeholder="密码">
         <el-switch class="ttx_switch"
