@@ -3,7 +3,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HomePage from '@/components/HomePage'
 <<<<<<< HEAD
+<<<<<<< HEAD
 import hotCity from "../components/hotCity"
+=======
+>>>>>>> 075709bc90e78142be4a17b6351e5407d5297247
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import ElementUI from 'element-ui'
@@ -32,6 +35,7 @@ export default new Router({
       path:'/city/:id',
       name:"city",
       component:city
+<<<<<<< HEAD
     },
     {
       path:"/hotCity",
@@ -46,6 +50,8 @@ export default new Router({
       component: Login
 
 >>>>>>> feature/ttx
+=======
+>>>>>>> 075709bc90e78142be4a17b6351e5407d5297247
     }
   ]
 })
