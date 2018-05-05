@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2015ad91-8a58-43ae-bf72-b3c0357da1d2" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/myapp-elm/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/myapp-elm/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myapp-elm/src/components/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/myapp-elm/src/components/login.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -81,7 +80,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myapp-elm/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="242">
@@ -90,14 +89,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.vue" pinned="false" current-in-tab="false">
+      <file leaf-file-name="login.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myapp-elm/src/components/login.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="160" column="3" selection-start-line="160" selection-start-column="3" selection-end-line="160" selection-end-column="3" />
+            <state relative-caret-position="1202">
+              <caret line="96" column="23" selection-start-line="96" selection-start-column="23" selection-end-line="96" selection-end-column="23" />
               <folding>
+                <element signature="n#header#0;n#div#0;n#template#0;n#!!top" />
                 <element signature="n#style#0;n#router-link#0;n#section#0;n#header#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#polyline#0;n#svg#0;n#router-link#0;n#section#0;n#header#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#p#0;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#p#1;n#div#0;n#template#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -142,8 +144,8 @@
         <option value="$PROJECT_DIR$/myapp-elm/src/main.js" />
         <option value="$PROJECT_DIR$/myapp-elm/package.json" />
         <option value="$PROJECT_DIR$/myapp-elm/src/router/index.js" />
-        <option value="$PROJECT_DIR$/myapp-elm/src/components/login.vue" />
         <option value="$PROJECT_DIR$/myapp-elm/index.html" />
+        <option value="$PROJECT_DIR$/myapp-elm/src/components/login.vue" />
       </list>
     </option>
   </component>
@@ -157,8 +159,8 @@
     <handled-path value="$PROJECT_DIR$/myapp-elm/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="815" />
-    <option name="y" value="57" />
+    <option name="x" value="495" />
+    <option name="y" value="90" />
     <option name="width" value="1310" />
     <option name="height" value="945" />
   </component>
@@ -272,10 +274,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25652000" />
+    <option name="totallyTimeSpent" value="37094000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="815" y="57" width="1310" height="945" extended-state="0" />
+    <frame x="495" y="90" width="1310" height="945" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2730799" />
@@ -707,17 +709,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myapp-elm/src/components/login.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="160" column="3" selection-start-line="160" selection-start-column="3" selection-end-line="160" selection-end-column="3" />
-          <folding>
-            <element signature="n#style#0;n#router-link#0;n#section#0;n#header#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#polyline#0;n#svg#0;n#router-link#0;n#section#0;n#header#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myapp-elm/.babelrc">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -725,6 +716,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
           <caret line="11" column="49" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myapp-elm/src/components/login.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1202">
+          <caret line="96" column="23" selection-start-line="96" selection-start-column="23" selection-end-line="96" selection-end-column="23" />
+          <folding>
+            <element signature="n#header#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#router-link#0;n#section#0;n#header#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#polyline#0;n#svg#0;n#router-link#0;n#section#0;n#header#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#p#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#p#1;n#div#0;n#template#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
