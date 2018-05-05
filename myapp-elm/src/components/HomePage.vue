@@ -20,7 +20,7 @@
       <h4 class="wfr-hot-city">热门城市</h4>
       <ul class="wfr-hot-link">
         <li v-for="arr in hotCity" class="wfr-hot-list">
-          <router-link :to="{name:'city',params:{id:hotCity.id,name:hotCity.name}}">
+          <router-link :to="{name:'city',params:{id:arr.id,name:arr.name}}">
             <span>
                {{arr.name}}
             </span>
@@ -29,17 +29,17 @@
       </ul>
     </div>
     <div class="wfr-all-city">
-      <div class="wfr-city-text">(按字母排序)</div>
-      <ul v-for="(value,key) in groupCity" class="wfr-Part-city">
-        <li class="wfr-city-list">
+      <span class="wfr-city-text">(按字母排序)</span>
+      <ul v-for="(value,key) in groupCity"  class="wfr-Part-city">
+        <li class="wfr-list">
           <h4 class="wfr-all-city1">{{key}}</h4>
-          <ol class="wfr-city-ul">
-            <router-link :to="{name:'city',parmas:{id:groupCity.id,name:groupCity.name}}">
-            <li class="wfr-city-Port" v-for="arr1 in value">
+          <ul class="wfr-ul">
+            <li v-for="arr1 in value" class="wfr-city-Port">
+              <router-link :to="{name:'city',params:{name:arr1.name,id:arr1.id}}" class="wfr-all-city-list">
                 {{arr1.name}}
+              </router-link>
             </li>
-            </router-link>
-          </ol>
+          </ul>
         </li>
       </ul>
     </div>
@@ -193,58 +193,57 @@
     fonu-weight: 200;
     color: #3190e8;
   }
-  .wfr-all-city {
-    margin-top: 0.6rem;
+  .wfr-all-city{
+    position:relative;
+    margin-top:0.6rem;
     border-top: 2px solid #e4e4e4;
     border-bottom: 1px solid #e4e4e4;
-    zoom: 1;
-    position:relative;
-  }
-  .wfr-part-city{
-    margin-top:0.5rem;
-    margin-bottom:0.5rem;
-    zoom:1;
-  }
-  .wfr-all-city1 {
-    border-top: 1px solid #ccc;
-    color: #666;
-    font-size: 0.55rem;
-    font-weight: 200;
-    padding-left: 0.4rem;
-    line-height: 1.5rem;
-    border-bottom: 1px solid #ccc;
-    text-indent: .45rem;
-  }
-  .wfr-city-Port {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    font-size: 0.5rem;
-    line-height: 1.6rem;
-    text-align: center;
-    float: left;
-    text-align: center;
-    color: #666;
-    border-bottom: .025rem solid #e4e4e4;
-    border-right: .025rem solid #e4e4e4;
-    width: 25%;
-    height: 1.75rem;
-    font-weight:150;
-  }
-  .wfr-city-ul{
-    overflow:hidden;
-    border-bottom:1px solid #e4e4e4;
-  }
-  .wfr-city-list{
-    margin-bottom:0.5rem;
-    background:#fff;
   }
   .wfr-city-text{
-    font-size: .475rem;
-    color: #999;
-    font-weight:300;
+    color:#999;
+    font-weight:150;
+    font-size:0.55rem;
     position:absolute;
-    left:1.7rem;
+    left:1.6rem;
     top:0.5rem;
+
+  }
+  .wfr-all-city1{
+    border-top: 1px solid #e4e4e4;
+    color: #666;
+    font-size:0.55rem;
+    font-weight:200;
+    padding-left:0.4rem;
+    line-height:1.5rem;
+    text-indent: .45rem;
+    border-bottom: 1px solid #e4e4e4;
+
+  }
+  .wfr-city-Port{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size:0.5rem;
+    line-height:1.6rem;
+    text-align:center;
+    width: 25%;
+    float:left;
+    color: #666;
+    font-weight:200;
+    border-bottom:1px solid #e4e4e4;
+    border-right:1px solid #e4e4e4;
+  }
+  /*.wfr-P*/
+  .wfr-list{
+    background-color: #fff;
+    border-bottom: 1px solid #e4e4e4;
+    margin-bottom:0.5rem;
+  }
+  .wfr-ul{
+    overflow: hidden;
+    zoom:1;
+  }
+  .wfr-all-city-list{
+    color:#666;
   }
 </style>
