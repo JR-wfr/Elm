@@ -50,7 +50,6 @@
   import Vue from "vue"
   import axios from 'axios'
   import VueAxios from 'vue-axios'
-
   Vue.use(VueAxios, axios)
   var api = "http://cangdu.org:8001/v1/cities?type=guess";
   var api1 = "http://cangdu.org:8001/v1/cities?type=hot";
