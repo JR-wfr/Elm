@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HomePage from '@/components/HomePage'
-import hotCity from "../components/hotCity"
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import ElementUI from 'element-ui'
@@ -22,11 +21,6 @@ export default new Router({
       path:'/city/:id',
       name:"city",
       component:city
-    },
-    {
-      path:"/hotCity",
-      name:"hotCity",
-      component:hotCity
     }
   ]
 })
