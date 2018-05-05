@@ -4,13 +4,12 @@
     <header id="ttx_head_top">
       <section class="ttx_head_goback">
         <!--图标-->
-        <svg class="ttx_head_sev"   xmlns="http://www.w3.org/2000/svg" version="1.1">
-          <a href="http://localhost:8080/#/">
+        <router-link to="/" style="margin-left: 0.5rem;">
+          <svg class="ttx_head_sev"   xmlns="http://www.w3.org/2000/svg" version="1.1">
             <polyline points="12,18 4,9 12,0" style="fill: none; stroke: rgb(255, 255, 255);stroke-width: 2px;">
             </polyline>
-          </a>
-
-        </svg>
+          </svg>
+        </router-link>
         <span  class="ttx_title_text">密码登录</span>
 
       </section>
@@ -22,16 +21,16 @@
         <input  class="ttx_index1" type="text" placeholder="账号">
       </div>
       <div class="ttx_input_container">
-        <input class="ttx_index1" type="text" placeholder="密码">
+        <input class="ttx_index1" type="text" placeholder="密码" >
         <el-switch class="ttx_switch"
-          v-model="value2"
-          active-color="#13ce66"
-          inactive-color="#ff4949">
+                   v-model="value2"
+                   active-color="#13ce66"
+                   inactive-color="#ff4949">
         </el-switch>
 
       </div>
       <div class="ttx_input_container">
-        <input class="ttx_index1" type="text" placeholder="验证码">
+        <input class="ttx_index1" type="text" placeholder="验证码" >
       </div>
     </form>
     <p class="ttx_login_tips">
@@ -42,10 +41,8 @@
       注册过的用户可凭账号密码登录
 
     </p>
-
     <div class="ttx_login_container">登录</div>
-
-    <a  class="ttx_to_forget" href="">重置密码</a>
+    <a  class="ttx_to_forget" href="#">重置密码</a>
   </div>
 </template>
 
@@ -68,15 +65,13 @@
   }
   .ttx_head_goback {
     text-align: center;
-    position: relative;
-    height: .195rem;
+    /*position: relative;*/
+    height: 1.5rem;
   }
   .ttx_head_goback .ttx_title_text {
-    position: absolute;
-    left: 0;
-    right: 0;
     height: 1.95rem;
     width: 100%;
+    margin-right: 1.8rem;
     line-height: 1.95rem;
     top: 0;
     text-align: center;
@@ -85,10 +80,6 @@
   #ttx_head_top {
     overflow: hidden;
     background-color: #3190e8;
-    /*position: fixed;*/
-    /*z-index: 100;*/
-    left: 0;
-    top: 0;
     width: 100%;
     height: 1.95rem;
     padding: 0;
@@ -98,10 +89,12 @@
   }
 
   .ttx_head_sev {
+    width: 0.8rem;
     float: left;
     height: 1rem;
     /*position: absolute;*/
     margin-top: .4rem;
+    z-index: 1000000000;
   }
 
   .ttx_title_text {
@@ -115,7 +108,6 @@
   }
 
   .ttx_loginForm {
-
     border: none;
     color: #333;
     font-weight: 400;
@@ -128,8 +120,6 @@
   }
 
   .ttx_input_container input{
-    /*display: block;*/
-
     padding: 0rem;
     margin: 0px;
     border: none;
@@ -168,19 +158,6 @@
     color: #3b95e9;
     margin-right: .3rem;
   }
-  /*.ttx_button_switch{*/
-    /*background-color: #ccc;*/
-    /*display: -ms-flexbox;*/
-    /*display: flex;*/
-    /*-ms-flex-pack: center;*/
-    /*justify-content: center;*/
-    /*width: 2rem;*/
-    /*height: .7rem;*/
-    /*padding: 0 .2rem;*/
-    /*border: 1px;*/
-    /*border-radius: .5rem;*/
-    /*position: relative;*/
-  /*}*/
 
   .ttx_switch{
     position: absolute;
