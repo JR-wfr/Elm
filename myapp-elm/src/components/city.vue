@@ -7,9 +7,13 @@
         <li><router-link to="/" class="wfr-li-text">切换城市</router-link></li>
       </ul>
       <div class="wfr-ipt-local">
-        <input type="text" placeholder="输入学校、商务楼、地址" v-model="value1">
-        <span>x️</span>
+        <el-input
+          placeholder="请输入学校、商务楼、地址"
+          v-model="value1"
+          clearable class="wfr-ipt-ps">
+        </el-input>
         <div class="wfr-city-btn" @click="WRFclick">提交</div>
+        <div class="wfr-Search-history">搜索历史</div>
       </div>
       <ul class="wfr-logo-city-ul2">
         <li v-for=" arrPs in PScity">
@@ -49,9 +53,6 @@
           this.PScity = responents.data
           console.log(this.PScity)
         });
-        // this.axios.get(api5).then((responents)=>{
-        //   console.log(responents)
-        // })
         console.log(ev)
         if(this.iptDate == ""){
           alert("请地址输信息")
@@ -98,20 +99,10 @@
     margin-left:0.2rem;
   }
   .wfr-ipt-local{
-    height: 4.25rem;
+    height: 4.9rem;
     background-color:#fff;
     position:relative;
     margin-bottom:0.5rem;
-  }
-  .wfr-ipt-local input{
-    margin:0.5rem 0.5rem 0.4rem 5%;
-    border-radius: .1rem;
-    width: 90%;
-    height: 1.3rem;
-    border:1px solid #ccc;
-    font-size:0.67rem;
-    font-weight:200;
-    outline:none;
   }
   .wfr-city-btn{
     background-color:#fff;
@@ -147,9 +138,20 @@
   }
   .wfr-logo-city-ul2{
     background-color:#fff;
-    border-top:1px solid #ccc;
   }
   .wfr-logo-city-ul2 li{
     border-bottom:1px solid #ccc;
+  }
+  .wfr-ipt-ps{
+    margin:0.5rem 0.5rem 0.4rem 5%;
+    width: 90%;
+    font-size:0.67rem;
+    font-weight:200;
+    outline:none;
+    transform: scaleY(0.85);
+  }
+  .wfr-Search-history{
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
   }
 </style>
