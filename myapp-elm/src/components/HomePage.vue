@@ -35,7 +35,7 @@
           <h4 class="wfr-all-city1">{{key}}</h4>
           <ul class="wfr-ul">
             <li v-for="arr1 in value" class="wfr-city-Port">
-              <router-link :to="{name:'city',params:{name:arr1.name,id:arr1.id}}" class="wfr-all-city-list">
+              <router-link :to="{name:'city',params:{id:arr1.id,name:arr1.name}}" class="wfr-all-city-list">
                 {{arr1.name}}
               </router-link>
             </li>
@@ -54,6 +54,7 @@
   var api = "http://cangdu.org:8001/v1/cities?type=guess";
   var api1 = "http://cangdu.org:8001/v1/cities?type=hot";
   var api2 = "http://cangdu.org:8001/v1/cities?type=group"
+  // console.log(api3)
   export default {
     name: "HomePage",
     data: function () {
@@ -61,20 +62,23 @@
         city: {},
         hotCity: [],
         groupCity: {},
-
+        PScity:"",
       }
     },
     created() {
+
       this.axios.get(api).then((responets) => {
         this.city = responets.data
       }),
+        // this.axios.get(api3).then((responets)=>{
+        //   console.log(this.responets)
+        // })
         this.axios.get(api1).then((responets) => {
           this.hotCity = responets.data
         }),
         this.axios.get(api2).then((responets) => {
           this.groupCity = responets.data
           this.groupCity = objKeySort(this.groupCity)
-
           function objKeySort(obj) {
             var newkey = Object.keys(obj).sort();
             var newObj = {};
@@ -83,7 +87,6 @@
             }
             return newObj;
           }
-
           console.log(this.groupCity)
         })
     }

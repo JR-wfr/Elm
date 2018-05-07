@@ -21,7 +21,6 @@
           <input  class="ttx_index1" type="text" placeholder="账号">
         </div>
       </div>
-
       <div class="ttx_input_container">
         <div>
           <input class="ttx_index1" :type="password1" placeholder="密码" v-model="value2">
