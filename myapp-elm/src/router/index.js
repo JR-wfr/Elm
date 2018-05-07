@@ -17,7 +17,7 @@ Vue.use(Router)
 import city from "../components/city"
 
 import Login from '@/components/login'
-
+import Shop from "../components/ElmShop/shop"
 Vue.use(Router)
 
 //配置路由
@@ -42,12 +42,19 @@ export default new Router({
       component: Login
 
 
+
     }, {
 
       path: '/personal',
       name: 'Personal',
       component: Personal
 
+
+    },
+    {
+      path:"/shop",
+      name:"Shop",
+      component:Shop
 
     }
   ]
