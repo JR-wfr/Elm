@@ -2,6 +2,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HomePage from '@/components/HomePage'
+import  Personal from '../components/User/personal'
 
 
 
@@ -39,11 +40,22 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login
+
+
+
+    }, {
+
+      path: '/personal',
+      name: 'Personal',
+      component: Personal
+
+
     },
     {
       path:"/shop",
       name:"Shop",
       component:Shop
+
     }
   ]
 })
