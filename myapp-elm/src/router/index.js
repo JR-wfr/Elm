@@ -3,7 +3,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HomePage from '@/components/HomePage'
 import  Personal from '../components/User/personal'
-
+import Order from "@/components/order"
+import  Integral from'@/components/integral'
+import VIP from"../components/VIP/VIP"
+import  Service from "../components/service/service"
 
 
 import axios from 'axios'
@@ -56,6 +59,23 @@ export default new Router({
       name:"Shop",
       component:Shop
 
+    },{
+    path:"/order",
+      name:Order,
+      component:Order
+    }, {
+      path:"/integral",
+      name:Integral,
+      component:Integral
+    },{
+      path:"/VIP",
+      name:VIP,
+      component:VIP
+    },{
+    path:"service",
+      name:Service,
+      component:Service
     }
+
   ]
 })

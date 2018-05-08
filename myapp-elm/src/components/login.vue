@@ -184,7 +184,7 @@
     height: 1rem;
     /*position: absolute;*/
     margin-top: .4rem;
-    z-index: 1000000000;
+    z-index: 10;
   }
 
   .ttx_title_text {
