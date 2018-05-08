@@ -23,7 +23,7 @@
         <li v-for="(key,index) in PScity">
           <div @click="wfrstoreg(key)">
             <div class="wfr-PScity-xx1">{{key.name}}</div>
-            <router-link :to="{name:'Shop',query:{geohash:key.geohash,name:key.address}}">
+            <router-link :to="{name:'Shop',query:{latitude:key.latitude,longitude:key.longitude,name:key.address}}">
             <div class="wfr-PScity-xx2">{{key.address}}</div>
             </router-link>
           </div>

@@ -70,15 +70,14 @@
       this.axios.get(api).then((responets) => {
         this.city = responets.data
       }),
-        // this.axios.get(api3).then((responets)=>{
-        //   console.log(this.responets)
-        // })
         this.axios.get(api1).then((responets) => {
           this.hotCity = responets.data
         }),
         this.axios.get(api2).then((responets) => {
           this.groupCity = responets.data
+          console.log(this.groupCity)
           this.groupCity = objKeySort(this.groupCity)
+          console.log(this.groupCity )
           function objKeySort(obj) {
             var newkey = Object.keys(obj).sort();
             var newObj = {};
@@ -88,6 +87,7 @@
             return newObj;
           }
           console.log(this.groupCity)
+
         })
     }
   }
