@@ -1,4 +1,5 @@
 <template>
+
   <div class="body1">
     <ul class="wfr-logo-location">
       <li>
@@ -23,37 +24,22 @@
       </li>
     </ul>
     <swiper ref="mySwiper" class="wfr-luobo" :options="swiperOption">
-      <swiper-slide class="wfr-lunbo1" v-for="data in swiperSlidesData">
-      <ul class="wfr-lunobo-ul1">
-        <li v-for="arra1 in data" class="wfr-lunobo-list">
-          <router-link :to="{name:'FoodDetails',params:{id:arra1.id}}">
-
-
-            <div @click="wfrOnclick1(arra1.id)">
+      <swiper-slide class="wfr-lunbo1" v-for="(data,index) in swiperSlidesData" :key="index">
+        <ul class="wfr-lunobo-ul1">
+          <li v-for="arra1 in data" class="wfr-lunobo-list">
+            <div @click="wfrOnclick1($event,arra1.title,citydata,citydata1)">
               <img :src="wfrhttp+arra1.image_url">
               <div class="wfr-lunbo-text">{{arra1.title}}</div>
             </div>
-          </router-link>
-
-        </li>
-      </ul>
-    </swiper-slide>
-      <swiper-slide class="wfr-lunbo1" v-for="data in swiperSlidesData">
-        <ul class="wfr-lunobo-ul1">
-          <li v-for="arra2 in data" class="wfr-lunobo-list">
-            <router-link :to="{name:'FoodDetails',params:{id:arra2.id}}">
-
-            <div @click="wfrOnclick2(arra2.id)">
-              <img :src="wfrhttp+arra2.image_url">
-              <div class="wfr-lunbo-text">{{arra2.title}}</div>
-            </div>
-            </router-link>
           </li>
         </ul>
       </swiper-slide>
       <span class="wfr-Circular1"></span>
       <span class="wfr-Circular2"></span>
     </swiper>
+
+
+
     <div class="wfr-city-business">
       <div class="wfr-city-business-loca">
         <svg data-v-070ab150="" class="shop_icon">
@@ -154,16 +140,19 @@
 </template>
 <script>
   import Vue from "vue"
-  // import Swiper from 'swiper'
+  var svg = require("../../assets/img/03拆包裹、取件.svg")
   import {swiper, swiperSlide} from 'vue-awesome-swiper'
   import 'swiper/dist/css/swiper.css'
-
   var api5 = "http://cangdu.org:8001/v2/index_entry";
+
+
   var api6 = `http://cangdu.org:8001/shopping/restaurants?latitude=${this.citydata}&longitude=${this.citydata1}`
+  import compt from "./compt"
   export default {
     name: "shop",
     data() {
       return {
+        svg: svg,
         location: "",
         locabusiness: "",
         citydata: "",
@@ -171,22 +160,38 @@
         imgdata: null,
         wfrarr1: [],
         wfrarr2: [],
-        num:"",
-        num1:'',
-        num2:'',
+        num: "",
+        num1: '',
+        num2: '',
+        latitude:"",
         imgurl: "//elm.cangdu.org/img/",
         wfrhttp: "https://fuss10.elemecdn.com",
         swiperOption: {
           loop: true,
+          observer: true,//修改swiper自己或子元素时，自动初始化swiper
+          observeParents: true,//修改swiper的父元素时，自动初始化swiper
+          on: {
+            click: (ev) => {
+              this.$router.push({name: 'FoodDetails', query: {name: this.num1,latitude:this.latitude,longitude:this.longitude}})
+            },
+            beforeDestroy: function () {
+              console.log('你销毁了Swiper;');
+            },
+          },
         },
         swiperSlidesData: []
       }
     },
+    computed: {
+      swiper() {
+        return this.$refs.mySwiper.swiper
+      }
+    },
     components: {
       swiper,
-      swiperSlide
+      swiperSlide,
     },
-    created(){
+    created() {
       this.location = this.$route.query.name
       this.citydata = this.$route.query.latitude
       this.citydata1 = this.$route.query.longitude
@@ -195,79 +200,90 @@
         this.imgdata = respoent.data;
         this.wfrarr1 = this.imgdata.slice(0, 8);
         this.wfrarr2 = this.imgdata.slice(8, 16);
-        // console.log(this.wfrarr1[0].image_url)
-        this.swiperSlidesData.push(this.wfrarr1,this.wfrarr2)
+        this.swiperSlidesData.push(this.wfrarr1, this.wfrarr2)
+        this.$nextTick(() => {
+          this.swiper.update(true)//重新开始轮播
+          this.swiper.updateSlides()//重新计算slides个数
+        })
       })
       this.axios.get(api6).then((responent) => {
         this.locabusiness = responent.data
-        // console.log(responent.data)
+        console.log(responent)
       })
     },
-    methods:{
-      wfrMerchant(arr5){
+    methods: {
+      wfrMerchant(arr5) {
         this.num = arr5
         console.log(this.num)
-        this.$router.push({name:'Businesstore',query:{id:this.num}})
+
+
+        this.$router.push({name: 'Businesstore', query: {id: this.num}})
       },
-      wfrOnclick1(id){
-        this.num1 = id
-        console.log(this.num1)
-        this.$router.push({name:'FoodDetails',parmas:{id:this.num1}})
-      },
-      wfrOnclick2(id){
-        this.num2 = id
-        this.$router.push({name:'FoodDetails',parmas:{id:this.num2}})
+      wfrOnclick1(ev, title,latitude,longitude) {
+        this.num1 = title
+        this.latitude = latitude
+        this.longitude = longitude
       },
     }
   };
 </script>
 <style scoped>
-  .wfr-business-rmb{
+  .wfr-business-rmb {
     overflow: hidden;
   }
-  .wfr-business-rmb1{
+
+  .wfr-business-rmb1 {
     transform: scale(0.85);
-    color:#666;
+    color: #666;
     font-size: 0.3rem;
     float: left;
   }
-  .wfr-business-rmb2{
+
+  .wfr-business-rmb2 {
     transform: scale(0.85);
     font-size: 0.3rem;
     float: right;
     color: #3190e8;
   }
-  .wfr-business-sapn2{
+
+  .wfr-business-sapn2 {
     font-size: 0.3rem;
     margin-right: 0.6rem;
   }
-  .wfr-business-sapn1{
-    color:#666;
+
+  .wfr-business-sapn1 {
+    color: #666;
     font-size: 0.3rem;
   }
-  .wfr-Place-order-float{
+
+  .wfr-Place-order-float {
     overflow: hidden;
     margin: 0.5rem 0;
   }
-  .wfr-Place-sapn2{
+
+  .wfr-Place-sapn2 {
     font-size: 0.3rem;
     color: #3190e8;
     border: .025rem solid #3190e8;
   }
-  .wfr-Place-sapn1{
+
+  .wfr-Place-sapn1 {
     font-size: 0.3rem;
     color: #fff;
     background-color: #3190e8;
     border: .05rem solid #3190e8;
   }
-  .wfr-Place-order1{
+
+  .wfr-Place-order1 {
     transform: scale(0.7);
     float: right;
   }
-  .wfr-Place-order{
+
+  .wfr-Place-order {
     font-size: 0.35rem;
     float: left;
   }
+
   .wfr-locabusiness-name {
     color: black;
     font-size: 0.67rem;
@@ -330,13 +346,6 @@
     border-radius: .1rem;
     margin-right: .2rem;
   }
-
-  .body1 {
-    width: 100%;
-    height: 100%;
-    background-color: #f5f5f5;
-  }
-
   .wfr-logo-location {
     display: flex;
     justify-content: space-around;
@@ -344,12 +353,73 @@
     width: 100%;
     height: 1.95rem;
     line-height: 1.95rem;
+    position: fixed;
+    z-index: 4;
+
   }
+
+  .shop_icon {
+    fill: #999;
+    margin-left: .6rem;
+    vertical-align: middle;
+    width: .6rem;
+    height: .6rem;
+  }
+
+  .wfr-business {
+    color: #999;
+    font-size: 0.55rem;
+  }
+
+  .wfr-city-business {
+    margin-top: 0.5rem;
+    border-top: 1px solid #f9f9f9;
+    width: 100%;
+    background-color: #fff;
+  }
+
+  .wfr-locabusiness-img {
+    width: 2.7rem;
+    height: 2.7rem;
+    margin-right: .4rem;
+  }
+
+  .wfr-city-business-loca {
+    padding-top: 0.4rem;
+    margin-bottom: 0.6rem;
+    border-top: 1px solid #ccc;
+  }
+
+
+
+
+
+
+
+
 
   .wfr-logo-seach {
     color: #fff;
     font-size: 1rem;
   }
+
+
+
+
+
+
+
+
+
+
+
+
+  .body1 {
+    width: 100%;
+    height: 100%;
+    background-color: #f5f5f5;
+  }
+
 
   .wfr-icon-list {
     width: 8rem;
@@ -377,6 +447,14 @@
     line-height: 1.95rem;
   }
 
+
+
+
+
+
+
+
+
   .wfr-luobo {
     width: 100%;
     position: relative;
@@ -384,6 +462,7 @@
   }
 
   .wfr-lunobo-ul1 {
+    margin-top: 1.8rem;
     padding-top: 0.4rem;
     width: 100%;
     background-color: white;
@@ -423,34 +502,5 @@
     top: 10rem;
   }
 
-  .shop_icon {
-    fill: #999;
-    margin-left: .6rem;
-    vertical-align: middle;
-    width: .6rem;
-    height: .6rem;
-  }
 
-  .wfr-business {
-    color: #999;
-    font-size: 0.55rem;
-  }
-
-  .wfr-city-business {
-    margin-top: 0.5rem;
-    border-top: 1px solid #f9f9f9;
-    width: 100%;
-    background-color: #fff;
-  }
-
-  .wfr-locabusiness-img {
-    width: 2.7rem;
-    height: 2.7rem;
-    margin-right: .4rem;
-  }
-  .wfr-city-business-loca{
-    padding-top: 0.4rem;
-    margin-bottom:0.6rem;
-    border-top: 1px solid #ccc;
-  }
 </style>

@@ -78,20 +78,24 @@
           name: city.name,
           address: city.address
         }
+
         for (var i = 0;i<this.Clickcity.length;i++) {
           if (all.name == this.Clickcity[i].name) {
-            console.log("jhvjck")
             return "";
           }
         }
         if (localStorage.getItem("all") != null) {
           this.Clickcity = JSON.parse(localStorage.getItem("all"))
         }
+
+
         this.Clickcity.push(all)
         // console.log(this.Clickcity)
 
         var d = JSON.stringify(this.Clickcity)
         localStorage.setItem('all', d);
+
+
       },
       wfrclick(){
         localStorage.removeItem("all")
@@ -101,7 +105,9 @@
     created() {
       this.id = this.$route.params.id
       this.name = this.$route.params.name
+      console.log(this.Clickcity)
       this.all11 = JSON.parse(localStorage.getItem("all"))
+
       if (this.all11 != ""){
         this.wfrShow1 = true
       }

@@ -45,7 +45,7 @@
           var api6 = `http://cangdu.org:8001/shopping/restaurant/${this.shopid}`
           this.axios.get(api6).then((responent)=>{
             this.wfrData = responent.data
-            console.log(responent.data)
+            console.log(this.wfrData)
           })
         }
     }

@@ -122,7 +122,6 @@
           this.show = false
           this.$router.push({name:'Personal',params:{name:this.value1}})
         }
-
       },
       ttx_789() {
         if (this.show == true) {

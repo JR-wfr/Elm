@@ -14,35 +14,17 @@
     <span class="ttx_title_text">订单列表</span>
   </section>
 </header>
-  <!--底部-->
-  <div class="foot_guide">
-    <!--外卖-->
-    <div class="ttx_guide_item">
-      <div class="el-icon-news"></div>
-      <div class="ttx_allicon_style"><span>外卖</span></div>
-    </div>
-    <!--搜索-->
-    <div class="ttx_guide_item">
-      <div class="el-icon-news"></div>
-      <div class="ttx_allicon_style"><span>搜索</span></div>
-    </div>
-    <!--订单-->
-    <div style="color: #3190e8;" class="ttx_guide_item">
-      <div class="el-icon-news"></div>
-      <div class="ttx_allicon_style"><span>订单</span></div>
-    </div>
-    <!--我的-->
-    <div class="ttx_guide_item">
-      <div  class="el-icon-news"></div>
-      <div class="ttx_allicon_style"><span>我的</span></div>
-    </div>
-  </div>
+  <!--<compont></compont>-->
+  <!--<router-view></router-view>-->
 </div>
 </template>
 
 <script>
+  import compont from "./ElmShop/compt"
     export default {
-        name: "order"
+        name: "order",
+      components: {
+      }
     }
 </script>
 

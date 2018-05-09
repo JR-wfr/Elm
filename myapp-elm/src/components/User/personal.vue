@@ -97,30 +97,6 @@
 
           </a>
         </div>
-      <!--</div>-->
-      <!--底部-->
-      <div class="foot_guide">
-        <!--外卖-->
-        <div class="ttx_guide_item">
-          <div class="el-icon-news"></div>
-          <div class="ttx_allicon_style"><span>外卖</span></div>
-        </div>
-        <!--搜索-->
-        <div class="ttx_guide_item">
-          <div class="el-icon-news"></div>
-          <div class="ttx_allicon_style"><span>搜索</span></div>
-        </div>
-        <!--订单-->
-        <div class="ttx_guide_item">
-          <div class="el-icon-news"></div>
-          <div class="ttx_allicon_style"><span>订单</span></div>
-        </div>
-        <!--我的-->
-        <div class="ttx_guide_item">
-          <div style="color: #3190e8;" class="el-icon-news"></div>
-          <div class="ttx_allicon_style"><span>我的</span></div>
-        </div>
-      </div>
     </div>
   </div>
 </template>
@@ -136,6 +112,8 @@
     created() {
       this.value1 = this.$route.params.name
       console.log(this.value1)
+    },
+    components:{
     }
   }
 </script>

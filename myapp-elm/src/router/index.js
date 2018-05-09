@@ -4,7 +4,7 @@ import Router from 'vue-router'
 import HomePage from '@/components/HomePage'
 import  Personal from '../components/User/personal'
 
-import Order from "@/components/order"
+import Order1 from "../components/order"
 import  Integral from'@/components/integral'
 import VIP from"../components/VIP/VIP"
 import  Service from "../components/service/service"
@@ -12,6 +12,10 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import Search from "../components/ElmShop/search"
+
+import Compt from "../components/ElmShop/compt"
+
 Vue.use(ElementUI);
 Vue.use(VueAxios, axios)
 Vue.use(Router)
@@ -29,7 +33,6 @@ export default new Router({
     {
       path: '/',
       name: 'HomePage',
-
       component:HomePage
     },
     {
@@ -42,38 +45,19 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login
-
-
-
-    }, {
-
-      path: '/personal',
-      name: 'Personal',
-      component: Personal
-
-
-    },
-    {
-      path:"/shop",
-      name:"Shop",
-      component:Shop
-
-    },
+    }
+    ,
     {
       path:"/store",
       name:"Businesstore",
       component:Businesstore
     },
     {
-      path:"details",
+      path:"/details",
       name:"FoodDetails",
       component:FoodDetails
-
-    },{
-    path:"/order",
-      name:Order,
-      component:Order
-    }, {
+    },
+    {
       path:"/integral",
       name:Integral,
       component:Integral
@@ -82,10 +66,37 @@ export default new Router({
       name:VIP,
       component:VIP
     },{
-    path:"service",
+    path:"/service",
       name:Service,
       component:Service
-    }
+    },
+    {
+      path:"/jump",
+      name:"Compt",
+      component:Compt,
+      children:[
+        {
+          path:"shop",
+          name:"Shop",
+          component:Shop
+        },
+        {
+          path:"serach",
+          name:"Search",
+          component:Search
+        },
+        {
+          path:"order",
+          name:"Order1",
+          component:Order1
+        },
+        {
+          path: 'personal',
+          name: 'Personal',
+          component: Personal
 
+        }
+      ]
+    }
   ]
 })
