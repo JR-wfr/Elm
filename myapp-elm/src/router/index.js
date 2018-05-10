@@ -15,7 +15,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import Search from "../components/ElmShop/search"
 
 import Compt from "../components/ElmShop/compt"
-
+import VagName from "../components/ElmShop/vagName"
 Vue.use(ElementUI);
 Vue.use(VueAxios, axios)
 Vue.use(Router)
@@ -91,6 +91,14 @@ export default new Router({
       path: "/integral",
       name: "Integral",
       component: Integral
+    },{
+      path:"/VIP",
+      name:"VIP",
+      component:VIP
+    },{
+    path:"/service",
+      name:Service,
+      component:Service
     },
     {
       path: "/VIP",
@@ -126,6 +134,11 @@ export default new Router({
           name: 'Personal',
           component: Personal
 
+        },
+        {
+          path:"/vagName",
+          name:"VagName",
+          component:VagName
         }
       ]
     },
