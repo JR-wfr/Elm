@@ -56,7 +56,7 @@
 
     </div>
     <a class="ttx_to_forget" href="#">重置密码</a>
-
+<!--弹框-->
     <div class="ttx_alet">
       <section v-if="show" class="ttx_tip_container">
         <div class="ttx_tip_icon">
@@ -181,7 +181,6 @@
     width: 0.8rem;
     float: left;
     height: 1rem;
-    /*position: absolute;*/
     margin-top: .4rem;
     z-index: 10;
   }
