@@ -21,6 +21,23 @@ import Businesstore from "../components/ElmShop/businesstore"
 import Login from '@/components/login'
 import Shop from "../components/ElmShop/shop"
 import FoodDetails from "../components/ElmShop/fooddetails"
+import service from "../components/service/service"
+//服务中心的路由
+import One from "../components/Service Centre/one"
+import Two from "../components/Service Centre/two"
+import Three from "../components/Service Centre/three"
+import Four from "../components/Service Centre/four"
+import Five from "../components/Service Centre/five"
+import Six from "../components/Service Centre/six"
+import Seven from "../components/Service Centre/seven"
+import Eight from "../components/Service Centre/eight"
+import Nine from "../components/Service Centre/nine"
+import Ten from "../components/Service Centre/ten"
+import Eleven from "../components/Service Centre/eleven"
+import Twelve from "../components/Service Centre/twelve"
+import  Thirteen from "../components/Service Centre/thirteen"
+
+
 Vue.use(Router)
 //配置路由
 
@@ -65,7 +82,7 @@ export default new Router({
       component:Businesstore
     },
     {
-      path:"details",
+      path:"/details",
       name:"FoodDetails",
       component:FoodDetails
 
@@ -82,10 +99,64 @@ export default new Router({
       name:VIP,
       component:VIP
     },{
-    path:"service",
-      name:Service,
-      component:Service
+    path:"/service",
+      name:service,
+      component:service
+    },
+    {
+      path:"/one",
+      name:One,
+      component:One
+    },{
+    path:"/two",
+      name:Two,
+      component:Two
+    },{
+    path:"/three",
+      name:Three,
+      component:Three
+    },{
+    path:"/four",
+      name:Four,
+      component:Four
+    },{
+    path:"/five",
+      name:Five,
+      component:Five
+    },{
+    path:"/six",
+      name:Six,
+      component:Six
+    },{
+    path:"/seven",
+      name:Seven,
+      component:Seven
+    },{
+    path:"/eight",
+      name:Eight,
+      component:Eight
+    },{
+    path:"/nine",
+      name:Nine,
+      component:Nine
+    },{
+    path:"/ten",
+      name:Ten,
+      component:Ten
+    },{
+    path:"/eleven",
+      name:Eleven,
+      component:Eleven
+    },{
+    path:"/twelve",
+      name:Twelve,
+      component:Twelve
+    },{
+    path:"/thirteen",
+      name:Thirteen,
+      component:Thirteen
     }
+
 
   ]
 })
