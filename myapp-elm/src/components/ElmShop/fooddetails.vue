@@ -1,21 +1,25 @@
 <template>
-  <div>
+  <div v-if="shoplist[wfrarray]">
     <div class="wfr-commodity-class">
       <router-link :to="{name:'Shop'}">
         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="wfr-commodity-Return">
           <polyline points="12,18 4,9 12,0" style="fill: none; stroke: rgb(255, 255, 255); stroke-width:2px"></polyline>
         </svg>
       </router-link>
-      <div class="wfr-commodity-name">{{data1}}</div>
+      <div class="wfr-commodity-name" v-if="show5">{{data1}}</div>
+      <div class="wfr-commodity-name" v-else>{{wfrName}}</div>
     </div>
     <section class="wfr-commodity-option">
+
       <div class="wfr-commodity-option-div1" v-if="show1">
-        <span>{{data1}}</span>
-        <div @click="wfrclick1" class="wfr-div1">
-          <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg" version="1.1" class="wfr-div2">
-            <polygon points="0,3 10,3 5,8"></polygon>
-          </svg>
-        </div>
+        <span v-if="show5">{{data1}}</span>
+        <span v-else>{{wfrName}}</span>
+          <div @click="wfrclick1" class="wfr-div1">
+            <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg" version="1.1" class="wfr-div2">
+              <polygon points="0,3 10,3 5,8"></polygon>
+            </svg>
+          </div>
+        <!--</div>-->
       </div>
       <div class="wfr-commodity-copy1" v-else>
         <span>分类</span>
@@ -25,6 +29,8 @@
           </svg>
         </div>
       </div>
+
+
       <div class="wfr-commodity-option-div1" v-if="show2">
         <span>排序</span>
         <div @click="wfrclick2" class="wfr-div1">
@@ -41,6 +47,8 @@
           </svg>
         </div>
       </div>
+
+
       <div class="wfr-commodity-option-div1" v-if="show3">
         <span>筛选</span>
         <div @click="wfrclick3" class="wfr-div1">
@@ -57,8 +65,12 @@
           </svg>
         </div>
       </div>
+
+
+
     </section>
-    <div class="wfr-city-business">
+
+    <div class="wfr-city-business" v-show="show8">
       <div class="wfr-city-business-loca">
         <svg data-v-070ab150="" class="shop_icon">
           <use data-v-070ab150="" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#shop">
@@ -154,31 +166,70 @@
         </li>
       </ul>
     </div>
-
-
-
-    <div class="wfr-Restaurant-info" v-if="!show1">
+    <div class="wfr-Restaurant-info" v-show="show4">
       <div>
-        <span>{{shoplist.name}}</span>
-        <span>{{shoplist.count}}</span>
+        <div class="wfr-Menu-info">
+          <ul class="wfr-Menu-ul">
+            <li v-for="(arr8,index) in shoplist" class="wfr-Menu-list " @click="wfrclickList($event,index)">
+              <div class="wfr-Menu-text1">
+                <img :src="arr8.image_url" v-if="!index==0||index==7" class="wfr-Menu-imege">
+                <img src="@/assets/img/1.png" v-if="index==7" class="wfr-Menu-imege1">
+                <span>{{arr8.name}}</span>
+              </div>
+              <div class="wfr-Menu-text2">
+                <span class="wfr-Menu-count">{{arr8.count}}</span>
+                <span v-if="!index==0">
+                <svg data-v-6cc1fce6="" width="8" height="8" xmlns="http://www.w3.org/2000/svg" version="1.1"
+                     class="category_arrow"><path data-v-6cc1fce6="" d="M0 0 L6 4 L0 8" stroke="#bbb" stroke-width="1"
+                                                  fill="none"></path></svg>
+              </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="wfr-Menu-Vegetable">
+          <ul class="wfr-Vegetable-ul" v-show="shoplist">
+            <li v-for="(wfrArr,index) in shoplist[wfrarray].sub_categories" class="wfr-Vegetable-list" @click="wfrCLICK(index,wfrArr.name,latitude,longitude,wfrArr.id)">
+              <div class="wfr-Vegetable-div1">
+                <div class="wfr-Vegetable-span1">{{wfrArr.name}}</div>
+                <div class="wfr-Vegetable-span2">{{wfrArr.count}}</div>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
+    </div>
+
+    <div>
+
     </div>
   </div>
 </template>
 <script>
   export default {
     name: "fooddetails",
-    data(){
+    data() {
       return {
         data1: "",
         show1: true,
         show2: true,
-        show3:true,
-        shoplist:[],
+        show3: true,
+        show4: false,
+        show5:true,
+        show6:true,
+        show7:true,
+        show8:true,
+        shoplist: [],
         imgurl1: "//elm.cangdu.org/img/",
-        latitude:"",
-        longitude:"",
-        wfrArr:[],
+        latitude: "",
+        longitude: "",
+        wfrArr: [],
+        dataArr: [],
+        dataimg: "",
+        wfrarray: 0,
+        wfrName:"",
+        wfrindex:"",
+        wfrID:"",
       }
     },
     created() {
@@ -186,39 +237,208 @@
       this.latitude = this.$route.query.latitude
       this.longitude = this.$route.query.longitude
       var api10 = `http://cangdu.org:8001/shopping/restaurants?latitude=${this.latitude}&longitude=${this.latitude}`;
-      this.axios.get(api10).then((res)=>{
+      this.axios.get(api10).then((res) => {
         this.wfrArr = res.data
-        // console.log(res.data)
       });
       let api8 = "http://cangdu.org:8001/shopping/v2/restaurant/category";
-      this.axios.get(api8).then((res)=>{
+      this.axios.get(api8).then((res) => {
         this.shoplist = res.data
-        // console.log(res);
-        console.log(this.shoplist);
-      })
+        function qiegeFn(Arr) {
+          let newStr = "";
+          var tmp = Arr.substring(0, 1) + "/"
+          newStr += tmp;
+          var tmp = Arr.substring(1, 3) + "/"
+          newStr += tmp;
+          var tmp = Arr.substring(3, Arr.length) + "."
+          newStr += tmp;
+          var href = "https://fuss10.elemecdn.com/"
+          href += newStr
+          if (Arr.length == 35) {
+            var hz = "png"
+          } else {
+            var hz = "jpeg"
+          }
+          return href += hz
+        }
+        for (var i = 0; i < this.shoplist.length;i++) {
+          var arrImg = this.shoplist[i].image_url
+          this.shoplist[i].image_url = qiegeFn(arrImg)
+          this.shoplist[7].image_url = ""
+        }
+      });
+
+      var api11 = `http://cangdu.org:8001/shopping/restaurants?latitude=${this.jd1}&longitude=${this.wd1}&restaurant_category_ids[]=${this.wangID}`;
+      this.axios.get(api11).then((res)=>{
+        console.log(res.data)
+      });
     },
     methods: {
       wfrclick1(ev) {
         this.show1 = !this.show1;
+        this.show2 = true;
+        this.show3 = true;
+        // this.show4 = !this.show4;
+        if (this.show1 == true && this.show2 == true && this.show3 == true) {
+          this.show4 = false
+        } else {
+          this.show4 = true
+        }
       },
       wfrclick2(ev) {
         this.show2 = !this.show2;
+        this.show1 = true;
+        this.show3 = true;
+        if (this.show1 == true && this.show2 == true && this.show3 == true) {
+          this.show4 = false
+        } else {
+          this.show4 = true
+        }
       },
       wfrclick3(ev) {
         this.show3 = !this.show3;
+        this.show2 = true;
+        this.show1 = true;
+        // this.show4 = !this.show4;
+        if (this.show1 == true && this.show2 == true && this.show3 == true) {
+          this.show4 = false
+        } else {
+          this.show4 = true
+        }
+      },
+      wfrclickList($event,index) {
+        var list = document.getElementsByClassName("wfr-Menu-list");
+        for (var i = 0;i<list.length;i++){
+          list[i].style.backgroundColor = "#f1f1f1"
+        }
+        $event.currentTarget.style.backgroundColor = "#fff"
+        this.wfrarray = index;
+
+      },
+      wfrCLICK(index,name,latitude,longitude,id){
+        console.log(index)
+        this.wfrindex = index;
+        this.wfrName = name
+        if(this.wfrName == name){
+          this.show1 = true
+          this.show5 = false
+          this.show4 = false
+           this.show7 = false
+           this.show6 = false
+          this.show8 = false
+
+        }
+        else {
+          this.show1 = false
+          this.show7 = false
+          this.show5 = true
+          this.show6 = true
+          this.show8 = true
+        }
+        this.wfrID = id
+        console.log(this.wfrID)
       }
     }
   }
 </script>
 <style scoped>
-  .wfr-Restaurant-info{
+  .wfr-Vegetable-ul::-webkit-scrollbar {
+    display:none
+  }
+  .wfr-Vegetable-ul{
+    height: 20.36rem;
+    overflow-x:scroll;
+  }
+  .wfr-Vegetable-div1{
+    margin-left: 0.5rem;
+    padding: 0.66rem 0 ;
+    width: 91%;
+    overflow: hidden;
+    border-bottom:1px solid #f1f1f1;
+  }
+  .wfr-Vegetable-span1{
+     float: left;
+   }
+  .wfr-Vegetable-span2{
+    float: right;
+    margin-right: 0.4rem;
+  }
+  .wfr-Vegetable-list {
+    color: #666;
+    font-size: 0.4rem;
+    margin-bottom: 0.1rem;
+  }
+  .wfr-Menu-Vegetable {
+    margin-top: 1.42rem;
+    width: 50%;
+    float: right;
+    background-color: white;
+  }
+  .wfr-Menu-text1 {
+    float: left;
+  }
+  .wfr-Menu-text2 {
+    height: 0.1rem;
+    float: right;
+    margin-right: 0.4rem;
+  }
+  .wfr-Menu-count {
+    margin-right: 0.4rem;
+    background-color: #ccc;
+    font-size: .4rem;
+    color: #fff;
+    padding: 0.1rem;
+    border: .025rem solid #ccc;
+    border-radius: .8rem;
+    width: 0.5rem;
+    font-weight: 100;
+  }
+
+  .wfr-Menu-imege1 {
+    width: .85rem;
+    height: .85rem;
+    vertical-align: middle;
+    position: absolute;
+    left: 1rem;
+    top: 0.5rem;
+  }
+
+  .wfr-Menu-imege {
+    width: .8rem;
+    height: .8rem;
+    vertical-align: middle;
+    margin-right: .2rem;
+  }
+
+  .wfr-Menu-ul {
+    padding-bottom: 0.5rem;
+  }
+
+  .wfr-Menu-list {
+    line-height: 2rem;
+    padding-left: 1rem;
+    font-size: .5rem;
+    color: #666;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .wfr-Menu-info {
+    margin-top: 3.3rem;
+    width: 50%;
+    background-color: #f1f1f1;
+    float: left;
+  }
+
+  .wfr-Restaurant-info {
     width: 100%;
     height: 100%;
-    background-color:rgba(0,0,0,0.5);
-    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    position: fixed;
     top: 0;
-    z-index:5;
+    z-index: 5;
   }
+
   .wfr-business-rmb {
     overflow: hidden;
   }
@@ -228,7 +448,6 @@
     font-size: 0.3rem;
     float: left;
   }
-
   .wfr-business-rmb2 {
     transform: scale(0.85);
     font-size: 0.3rem;
@@ -250,32 +469,39 @@
     overflow: hidden;
     margin: 0.5rem 0;
   }
+
   .wfr-Place-sapn2 {
     font-size: 0.3rem;
     color: #3190e8;
     border: .025rem solid #3190e8;
   }
+
   .wfr-Place-sapn1 {
     font-size: 0.3rem;
     color: #fff;
     background-color: #3190e8;
     border: .05rem solid #3190e8;
   }
+
   .wfr-Place-order1 {
     transform: scale(0.7);
     float: right;
   }
+
   .wfr-Place-order {
     font-size: 0.35rem;
     float: left;
   }
+
   .wfr-locabusiness-name {
     color: black;
     font-size: 0.67rem;
   }
+
   .wfr-left {
     float: left;
   }
+
   .wfr-locabusiness-list {
     padding: 0.7rem 0;
     border-bottom: 1px solid #f1f1f1;
@@ -285,6 +511,7 @@
   .wfr-locabusiness-tt {
     overflow: hidden;
   }
+
   .supports {
     font-size: .5rem;
     color: #999;
@@ -328,6 +555,7 @@
     border-radius: .1rem;
     margin-right: .2rem;
   }
+
   .shop_icon {
     fill: #999;
     margin-left: .6rem;
@@ -358,7 +586,8 @@
     margin-bottom: 0.6rem;
     border-top: 1px solid #ccc;
   }
-  .wfr-shop-list{
+
+  .wfr-shop-list {
     width: 100%;
     position: absolute;
     display: -ms-flexbox;
@@ -368,22 +597,26 @@
     border-top: .025rem solid #e4e4e4;
     background-color: #fff;
   }
-  .wfr-div2{
+
+  .wfr-div2 {
     transition: all 0.2s;
     transform: rotateZ(360deg);
   }
-  .wfr-div3{
+
+  .wfr-div3 {
     fill: #3190e8;
     transition: all 0.2s;
     transform: rotateZ(180deg);
   }
-  .wfr-div1{
+
+  .wfr-div1 {
     position: relative;
     width: 10px;
     height: 10px;
     transform-origin: 10px 10px;
     display: inline-block;
   }
+
   .wfr-commodity-copy1 span {
     color: #3190e8;
     font-size: 0.5rem;
@@ -396,6 +629,7 @@
     border-right: 1px solid #f1f1f1;
     position: relative;
   }
+
   .wfr-commodity-option-div2 span {
     font-size: 0.5rem;
   }
@@ -405,9 +639,11 @@
     width: 35%;
     margin: 0.3rem;
   }
+
   .wfr-commodity-option-div1 span {
     font-size: 0.5rem;
   }
+
   .wfr-commodity-option-div1 {
     text-align: center;
     width: 35%;
@@ -415,6 +651,7 @@
     border-right: 1px solid #f1f1f1;
     position: relative;
   }
+
   .wfr-commodity-option {
     background-color: #fff;
     border-bottom: .025rem solid #f1f1f1;
@@ -427,6 +664,7 @@
     z-index: 13;
     box-sizing: border-box;
   }
+
   .wfr-commodity-class {
     background-color: #3190e8;
     position: fixed;
