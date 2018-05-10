@@ -2,7 +2,7 @@
   <div class="ttx_rating_page">
     <header class="ttx_head_top">
       <section class="ttx_head_goback">
-        <router-link to="/personal">
+        <router-link :to="{name:'Personal'}">
           <svg class="ttx_head_sev">
             <polyline points="12,18 4,9 12,0" style="fill: none; stroke: rgb(255, 255, 255); stroke-width: 2px;">
 
@@ -126,38 +126,63 @@
           <span> ></span>
         </li>
         </router-link>
+        <!--Fourteen-->
+        <router-link to="/fourteen">
         <li class="ttx_question_title">
           <span> 优惠说明</span>
           <span> ></span>
         </li>
+        </router-link>
+        <!--Fifteen-->
+        <router-link to="/fifteen">
+          <!--Sixteen-->
         <li class="ttx_question_title">
           <span>免责声明</span>
           <span> ></span>
         </li>
+        </router-link>
+        <!--Sixteen-->
+        <router-link to="/sixteen">
         <li class="ttx_question_title">
           <span>代金券说明</span>
           <span> ></span>
         </li>
+        </router-link>
+        <!--Seventeen-->
+        <router-link to="/seventeen">
         <li class="ttx_question_title">
           <span>商务合作</span>
           <span> ></span>
         </li>
+        </router-link>
+        <!--Eighteen-->
+        <router-link to="/eighteen">
         <li class="ttx_question_title">
           <span>余额问题</span>
           <span> ></span>
         </li>
+        </router-link>
+        <!--Nineteen-->
+        <router-link to="/nineteen">
         <li class="ttx_question_title">
           <span>超赞商家</span>
           <span> ></span>
         </li>
+        </router-link>
+        <!--Twenty-one-->
+        <router-link to="/twenty-one">
         <li class="ttx_question_title">
           <span>匿名购买</span>
           <span> ></span>
         </li>
+        </router-link>
+        <!--Twenty-->
+        <router-link to="twenty">
         <li class="ttx_question_title">
           <span>活动问题</span>
           <span> ></span>
         </li>
+        </router-link>
       </ul>
     </div>
 

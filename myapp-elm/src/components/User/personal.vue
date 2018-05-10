@@ -34,21 +34,28 @@
         <div class="Grid">
           <div class="Grid-cell">
             <ul class="ttx_clear">
+              <!--余额-->
+              <router-link to="/balance">
               <li class="ttx_info-data-link">
                 <span class="info-data-top"><b id="ttx_blue">0.00</b>元</span>
                 <span class="info-data-bottom">我的余额</span>
               </li>
+              </router-link>
             </ul>
           </div>
           <!--第二个框-->
+
           <div class="Grid-cell">
             <ul class="ttx_clear">
+              <router-link to="/discount">
               <li class="ttx_info-data-link">
                 <span class="info-data-top"><b id="ttx_red">0</b>个</span>
                 <span class="info-data-bottom">我的优惠</span>
               </li>
+              </router-link>
             </ul>
           </div>
+
           <!--第三个框-->
           <div class="Grid-cell">
             <ul class="ttx_clear">
@@ -113,7 +120,6 @@
     },
     created() {
       this.value1 = this.$route.params.name
-      console.log(this.value1)
     },
     components:{
     }
