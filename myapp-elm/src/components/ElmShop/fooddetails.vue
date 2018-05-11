@@ -10,7 +10,6 @@
       <div class="wfr-commodity-name" v-else>{{wfrName}}</div>
     </div>
     <section class="wfr-commodity-option">
-
       <div class="wfr-commodity-option-div1" v-if="show1">
         <span v-if="show5">{{data1}}</span>
         <span v-else>{{wfrName}}</span>
@@ -30,7 +29,6 @@
         </div>
       </div>
 
-
       <div class="wfr-commodity-option-div1" v-if="show2">
         <span>排序</span>
         <div @click="wfrclick2" class="wfr-div1">
@@ -40,15 +38,13 @@
         </div>
       </div>
       <div class="wfr-commodity-copy1" v-else>
-        <span>分类</span>
+        <span>排序</span>
         <div @click="wfrclick2" class="wfr-div1">
           <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg" version="1.1" class="wfr-div3">
             <polygon points="0,3 10,3 5,8"></polygon>
           </svg>
         </div>
       </div>
-
-
       <div class="wfr-commodity-option-div1" v-if="show3">
         <span>筛选</span>
         <div @click="wfrclick3" class="wfr-div1">
@@ -65,11 +61,7 @@
           </svg>
         </div>
       </div>
-
-
-
     </section>
-
     <div class="wfr-city-business" v-show="show8">
       <div class="wfr-city-business-loca">
         <svg data-v-070ab150="" class="shop_icon">
@@ -166,8 +158,8 @@
         </li>
       </ul>
     </div>
-    <div class="wfr-Restaurant-info" v-show="show4">
-      <div>
+    <div class="wfr-Restaurant-info" v-show="show9">
+      <div class="wfr-donghua" v-show="show4">
         <div class="wfr-Menu-info">
           <ul class="wfr-Menu-ul">
             <li v-for="(arr8,index) in shoplist" class="wfr-Menu-list " @click="wfrclickList($event,index)">
@@ -198,18 +190,235 @@
           </ul>
         </div>
       </div>
+      <div class="wfr-lookup-method" v-show="wfrshow1">
+          <ul class="wfr-lookup-ul">
+            <li v-for="(shuzu1,index) in wfrshuzu" class="wfr-lookup-list">
+              <span class="wfr-lookup-span1"><img :src="shuzu1.img" class="wfr-lookup-img"></span><span
+              class="wfr-lookup-span2" @click="WOnclick555(index,$event)"
+            >{{shuzu1.name}}</span>
+            </li>
+          </ul>
+      </div>
+
+      <div class="wfr">
+
+      </div>
+
+
+
+    </div>
+    <div class="wfr-food-details" v-show="wfrshow2">
+      <ul>
+        <li v-for="wfrA in wfrAr" class="wfr-locabusiness-list">
+          <div class="wfr-business-bs">
+            <img :src="imgurl1+wfrA.image_path" class="wfr-locabusiness-img">
+          </div>
+          <div class="wfr-business-info">
+            <div class="wfr-locabusiness-tt">
+              <div class="wfr-left">
+                <span class="wfr-locabusiness-text">品牌</span>
+                <span class="wfr-locabusiness-name">{{wfrA.name}}</span>
+              </div>
+              <div class="shop_detail_ul">
+                <span class="supports">保</span>
+                <span class="supports">准</span>
+                <span class="supports">票</span>
+              </div>
+            </div>
+            <div @click="wfrMerchant(wfrA.id)">
+              <div class="wfr-Place-order-float">
+                <div class="wfr-Place-order">
+                  <span>
+                <svg data-v-5df6cab1="" class="grey_fill"><use data-v-5df6cab1=""
+                                                               xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                               xlink:href="#star">
+                  <svg id="star" viewBox="0 0 32 32" width="100%" height="100%"><path
+                    d="M16 26.382l-8.16 4.992c-1.5 0.918-2.382 0.264-1.975-1.435l2.226-9.303-7.269-6.218c-1.337-1.143-0.987-2.184 0.755-2.322l9.536-0.758 3.667-8.835c0.674-1.624 1.772-1.613 2.442 0l3.667 8.835 9.536 0.758c1.753 0.139 2.082 1.187 0.755 2.322l-7.269 6.218 2.226 9.303c0.409 1.71-0.485 2.347-1.975 1.435l-8.16-4.992z"
+                    class="path1"></path></svg>
+                </use></svg>
+                <svg data-v-5df6cab1="" class="grey_fill"><use data-v-5df6cab1=""
+                                                               xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                               xlink:href="#star">
+                  <svg id="star" viewBox="0 0 32 32" width="100%" height="100%"><path
+                    d="M16 26.382l-8.16 4.992c-1.5 0.918-2.382 0.264-1.975-1.435l2.226-9.303-7.269-6.218c-1.337-1.143-0.987-2.184 0.755-2.322l9.536-0.758 3.667-8.835c0.674-1.624 1.772-1.613 2.442 0l3.667 8.835 9.536 0.758c1.753 0.139 2.082 1.187 0.755 2.322l-7.269 6.218 2.226 9.303c0.409 1.71-0.485 2.347-1.975 1.435l-8.16-4.992z"
+                    class="path1"></path></svg>
+                </use></svg>
+                <svg data-v-5df6cab1="" class="grey_fill"><use data-v-5df6cab1=""
+                                                               xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                               xlink:href="#star">
+                  <svg id="star" viewBox="0 0 32 32" width="100%" height="100%"><path
+                    d="M16 26.382l-8.16 4.992c-1.5 0.918-2.382 0.264-1.975-1.435l2.226-9.303-7.269-6.218c-1.337-1.143-0.987-2.184 0.755-2.322l9.536-0.758 3.667-8.835c0.674-1.624 1.772-1.613 2.442 0l3.667 8.835 9.536 0.758c1.753 0.139 2.082 1.187 0.755 2.322l-7.269 6.218 2.226 9.303c0.409 1.71-0.485 2.347-1.975 1.435l-8.16-4.992z"
+                    class="path1"></path></svg>
+                </use></svg>
+                <svg data-v-5df6cab1="" class="grey_fill"><use data-v-5df6cab1=""
+                                                               xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                               xlink:href="#star">
+                  <svg id="star" viewBox="0 0 32 32" width="100%" height="100%"><path
+                    d="M16 26.382l-8.16 4.992c-1.5 0.918-2.382 0.264-1.975-1.435l2.226-9.303-7.269-6.218c-1.337-1.143-0.987-2.184 0.755-2.322l9.536-0.758 3.667-8.835c0.674-1.624 1.772-1.613 2.442 0l3.667 8.835 9.536 0.758c1.753 0.139 2.082 1.187 0.755 2.322l-7.269 6.218 2.226 9.303c0.409 1.71-0.485 2.347-1.975 1.435l-8.16-4.992z"
+                    class="path1"></path></svg>
+                </use></svg>
+                <svg data-v-5df6cab1="" class="grey_fill"><use data-v-5df6cab1=""
+                                                               xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                               xlink:href="#star">
+                  <svg id="star" viewBox="0 0 32 32" width="100%" height="100%"><path
+                    d="M16 26.382l-8.16 4.992c-1.5 0.918-2.382 0.264-1.975-1.435l2.226-9.303-7.269-6.218c-1.337-1.143-0.987-2.184 0.755-2.322l9.536-0.758 3.667-8.835c0.674-1.624 1.772-1.613 2.442 0l3.667 8.835 9.536 0.758c1.753 0.139 2.082 1.187 0.755 2.322l-7.269 6.218 2.226 9.303c0.409 1.71-0.485 2.347-1.975 1.435l-8.16-4.992z"
+                    class="path1"></path></svg>
+                </use></svg>
+              </span>
+                  <span>{{wfrA.rating}}</span>
+                  <span>月售{{wfrA.recent_order_num}}</span>
+                </div>
+                <div class="wfr-Place-order1">
+                  <span class="wfr-Place-sapn1">蜂鸟专送</span>
+                  <span class="wfr-Place-sapn2">准时达</span>
+                </div>
+              </div>
+              <div class="wfr-business-Rmb">
+                <div class="wfr-business-Rmb1">￥20起送/配送费约￥5</div>
+                <div class="wfr-business-Rmb2">
+                  <span class="wfr-business-sapn1">{{wfrA.tips}}</span>
+                  <span class="wfr-business-sapn1">{{wfrA.distance}} /</span>
+                  <span class="wfr-business-sapn2">{{wfrA.order_lead_time}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
 
-    <div>
-
-    </div>
   </div>
 </template>
 <script>
   export default {
+    methods: {
+      wfrclick1(ev) {
+        this.show1 = !this.show1;
+        this.show2 = true;
+        this.show3 = true;
+        this.wfrshow1 = false;
+        if (this.show1 == true && this.show2 == true && this.show3 == true ) {
+          this.show9 = false;
+          this.show4 = false;
+        } else {
+          this.show4 = true;
+          this.show9 = true;
+        }
+      },
+      wfrclick2(ev) {
+        this.show2 = !this.show2;
+        this.show1 = true;
+        this.show3 = true;
+        if (this.show1 == true && this.show2 == true && this.show3 == true) {
+          this.show9 = false;
+          this.show4 = false;
+          this.wfrshow1 = false;
+        } else {
+          this.show4 = false;
+          this.show9 = true;
+          this.wfrshow1 = true;
+        }
+      },
+      wfrclick3(ev) {
+        this.show3 = !this.show3;
+        this.show2 = true;
+        this.show1 = true;
+        // this.show4 = false;
+         this.wfrshow1 = false;
+        if (this.show1 == true && this.show2 == true && this.show3 == true) {
+          this.show4 = true;
+          this.show9 = false;
+        } else {
+          this.show4 = false;
+          this.show9 = true;
+
+        }
+      },
+      wfrclickList($event,index) {
+        var list = document.getElementsByClassName("wfr-Menu-list");
+        for (var i = 0;i<list.length;i++){
+          list[i].style.backgroundColor = "#f1f1f1"
+        }
+        $event.currentTarget.style.backgroundColor = "#fff"
+        this.wfrarray = index;
+      },
+      wfrCLICK(index,name,latitude,longitude,id){
+        this.show9 = false;
+        console.log(index)
+        this.wfrindex = index;
+        this.wfrName = name
+        if(this.wfrName == name){
+          this.show1 = true
+          this.show5 = false
+          this.show4 = false
+          this.show7 = false
+          this.show6 = false
+          this.show8 = false
+        }
+        else {
+          this.show1 = false
+          this.show7 = false
+          this.show5 = true
+          this.show6 = true
+          this.show8 = true
+        }
+        this.wfrID = id;
+        var api11 = `http://cangdu.org:8001/shopping/restaurants?latitude=${this.latitude}&longitude=${this.longitude}&restaurant_category_ids[]=${this.wfrID}`;
+        this.axios.get(api11).then((res)=>{
+          this.wfrAr = res.data
+        });
+
+        var api12 = `http://cangdu.org:8001/shopping/restaurants?latitude=${this.latitude}&longitude=${this.longitude}&order_by=${this.wfrID}`;
+        this.axios.get(api12).then((res)=>{
+          console.log(res.data)
+        });
+      },
+      WOnclick555(index,$event){
+        var bbb = document.getElementsByClassName("wfr-lookup-span2")
+        for (var i = 0;i<bbb.length;i++){
+          bbb[i].style.color = "#595757";
+        }
+        if (index == 0) {
+          this.wfrindex = 4
+        }else if(index == 1){
+          this.wfrindex = 5
+        }else if(index == 2){
+          this.wfrindex = 6
+        }else if(index == 3){
+          this.wfrindex = 1
+        } else if(index == 4){
+          this.wfrindex = 2
+        }else if(index == 5){
+          this.wfrindex = 3
+        }else {
+          this.wfrindex = "";
+        };
+        $event.currentTarget.style.color="#3190e8";
+        var api13 = `http://cangdu.org:8001/shopping/restaurants?latitude=${this.latitude}&longitude=${this.latitude}&order_by[]=${this.wfrindex}`
+        this.axios.get(api13).then((res)=>{
+            this.wfrArr = res.data
+        });
+          this.wfrshow1 = false;
+          this.show9 = false;
+          this.show2 = true;
+          var mess = this.wfrAr;
+          for (var i=0;i<mess.length-1;i++){
+            for(var j = 0;j<mess.length-i-1;j++){
+              if (mess[j].rating < mess[j + 1].rating) {
+                let tmp = mess[j];
+                mess[j] = mess[j + 1];
+                mess[j + 1] = tmp;
+              }
+            }
+          }
+          this.wfrAr = mess
+      },
+    },
     name: "fooddetails",
     data() {
       return {
+        wangdata:[],
+        wfrTag:false,
         data1: "",
         show1: true,
         show2: true,
@@ -219,6 +428,10 @@
         show6:true,
         show7:true,
         show8:true,
+        show9:false,
+        wfrshow1:false,
+        wfrshow2:true,
+        wfrshow3:false,
         shoplist: [],
         imgurl1: "//elm.cangdu.org/img/",
         latitude: "",
@@ -230,19 +443,41 @@
         wfrName:"",
         wfrindex:"",
         wfrID:"",
+        wfrAr:[],
+        wfrshuzu:[],
+        wangindex:"",
+        wfrshuzu:[{
+          img:require("../../assets/img/img4.png"),
+          name:"智能排序"
+        },{
+          img:require("../../assets/img/img1.png"),
+          name:"距离最近"
+        },{
+          img:require("../../assets/img/img5.png"),
+          name:"销量最高"
+        },{
+          img:require("../../assets/img/img6.png"),
+          name:"起送价最低"
+        },{
+          img:require("../../assets/img/img2.png"),
+          name:"配送速度最快"
+        },{
+          img:require("../../assets/img/img3.png"),
+          name:"评分最高"
+        }]
       }
     },
-    created() {
+    created(){
       this.data1 = this.$route.query.name;
-      this.latitude = this.$route.query.latitude
-      this.longitude = this.$route.query.longitude
+      this.latitude = this.$route.query.latitude;
+      this.longitude = this.$route.query.longitude;
       var api10 = `http://cangdu.org:8001/shopping/restaurants?latitude=${this.latitude}&longitude=${this.latitude}`;
       this.axios.get(api10).then((res) => {
-        this.wfrArr = res.data
+        this.wfrArr = res.data;
       });
       let api8 = "http://cangdu.org:8001/shopping/v2/restaurant/category";
       this.axios.get(api8).then((res) => {
-        this.shoplist = res.data
+        this.shoplist = res.data;
         function qiegeFn(Arr) {
           let newStr = "";
           var tmp = Arr.substring(0, 1) + "/"
@@ -266,81 +501,62 @@
           this.shoplist[7].image_url = ""
         }
       });
-
-      var api11 = `http://cangdu.org:8001/shopping/restaurants?latitude=${this.jd1}&longitude=${this.wd1}&restaurant_category_ids[]=${this.wangID}`;
-      this.axios.get(api11).then((res)=>{
-        console.log(res.data)
-      });
-    },
-    methods: {
-      wfrclick1(ev) {
-        this.show1 = !this.show1;
-        this.show2 = true;
-        this.show3 = true;
-        // this.show4 = !this.show4;
-        if (this.show1 == true && this.show2 == true && this.show3 == true) {
-          this.show4 = false
-        } else {
-          this.show4 = true
-        }
-      },
-      wfrclick2(ev) {
-        this.show2 = !this.show2;
-        this.show1 = true;
-        this.show3 = true;
-        if (this.show1 == true && this.show2 == true && this.show3 == true) {
-          this.show4 = false
-        } else {
-          this.show4 = true
-        }
-      },
-      wfrclick3(ev) {
-        this.show3 = !this.show3;
-        this.show2 = true;
-        this.show1 = true;
-        // this.show4 = !this.show4;
-        if (this.show1 == true && this.show2 == true && this.show3 == true) {
-          this.show4 = false
-        } else {
-          this.show4 = true
-        }
-      },
-      wfrclickList($event,index) {
-        var list = document.getElementsByClassName("wfr-Menu-list");
-        for (var i = 0;i<list.length;i++){
-          list[i].style.backgroundColor = "#f1f1f1"
-        }
-        $event.currentTarget.style.backgroundColor = "#fff"
-        this.wfrarray = index;
-
-      },
-      wfrCLICK(index,name,latitude,longitude,id){
-        console.log(index)
-        this.wfrindex = index;
-        this.wfrName = name
-        if(this.wfrName == name){
-          this.show1 = true
-          this.show5 = false
-          this.show4 = false
-           this.show7 = false
-           this.show6 = false
-          this.show8 = false
-
-        }
-        else {
-          this.show1 = false
-          this.show7 = false
-          this.show5 = true
-          this.show6 = true
-          this.show8 = true
-        }
-        this.wfrID = id
-        console.log(this.wfrID)
-      }
     }
   }
 </script>
 <style scoped>
+  .wfr-lookup-img{
+    width: 1.06rem;
+    height: 1.06rem;
+    margin-left: 0.5rem;
+    padding-top: 0.3rem;
+    position: absolute;
+    top: -1.2rem;
+  }
+  .wfr-lookup-span1{
+    width: 10%;
+    display: inline-block;
+    position: relative;
+  }
+  .wfr-lookup-span2{
+    width: 75%;
+    display: inline-block;
+    font-size: 0.5rem;
+    font-weight: 300;
+    border-bottom: 1px solid #f1f1f1;
+    padding: 0.8rem;
+  }
+  .wfr-lookup-list{
+    width: 100%;
+  }
+  .wfr-lookup-method{
+    width: 100%;
+    margin-top: 3.4rem;
+    background-color: white;
+    position:absolute;
+    animation:wfrkey 0.4s;
+  }
+  .wfr-business-Rmb {
+    width: 100%;
+    overflow: hidden;
+  }
+  .wfr-business-Rmb1{
+    width: 45%;
+    transform: scale(0.85);
+    color: #666;
+    font-size: 0.3rem;
+    float: left;
+  }
+  .wfr-business-Rmb2 {
+    width: 55%;
+    transform: scale(0.85);
+    font-size: 0.3rem;
+    float: right;
+    color: #3190e8;
+  }
+  .wfr-food-details{
+    margin-top: 3.8rem;
+  }
   .wfr-Vegetable-ul::-webkit-scrollbar {
     display:none
   }
@@ -421,24 +637,37 @@
     position: relative;
     overflow: hidden;
   }
-
   .wfr-Menu-info {
     margin-top: 3.3rem;
     width: 50%;
     background-color: #f1f1f1;
     float: left;
   }
-
+  .wfr-donghua{
+    width: 100%;
+    position:absolute;
+    animation:wfrkey 0.4s;
+  }
+  @keyframes wfrkey {
+    0%{
+      transform: translateY(-20rem);
+      opacity: 0;
+    }
+    100%{
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
   .wfr-Restaurant-info {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     overflow: hidden;
-    position: fixed;
+    position:fixed;
     top: 0;
     z-index: 5;
-  }
 
+  }
   .wfr-business-rmb {
     overflow: hidden;
   }

@@ -163,6 +163,8 @@
         num: "",
         num1: '',
         num2: '',
+        jd:"",
+        wd:"",
         latitude:"",
         imgurl: "//elm.cangdu.org/img/",
         wfrhttp: "https://fuss10.elemecdn.com",
@@ -172,7 +174,7 @@
           observeParents: true,//修改swiper的父元素时，自动初始化swiper
           on: {
             click: (ev) => {
-              this.$router.push({name: 'FoodDetails', query: {name: this.num1,latitude:this.latitude,longitude:this.longitude}})
+              this.$router.push({name: 'FoodDetails', query: {name: this.num1,latitude:this.jd,longitude:this.wd}})
             },
             beforeDestroy: function () {
               console.log('你销毁了Swiper;');
@@ -195,7 +197,8 @@
       this.location = this.$route.query.name
       this.citydata = this.$route.query.latitude
       this.citydata1 = this.$route.query.longitude
-      console.log(this.$route.query)
+      // console.log(this.citydata);
+      // console.log(this.citydata1);
       this.axios.get(api5).then((respoent) => {
         this.imgdata = respoent.data;
         this.wfrarr1 = this.imgdata.slice(0, 8);
@@ -208,21 +211,20 @@
       })
       this.axios.get(api6).then((responent) => {
         this.locabusiness = responent.data
-        console.log(responent)
+        console.log(responent.data)
       })
     },
     methods: {
       wfrMerchant(arr5) {
         this.num = arr5
         console.log(this.num)
-
-
         this.$router.push({name: 'Businesstore', query: {id: this.num}})
       },
       wfrOnclick1(ev, title,latitude,longitude) {
         this.num1 = title
-        this.latitude = latitude
-        this.longitude = longitude
+        this.jd = latitude
+        this.wd = longitude
+        console.log(this.citydata,this.citydata1);
       },
     }
   };

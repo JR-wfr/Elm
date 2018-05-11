@@ -1,7 +1,6 @@
 <template>
   <div>
-    <div class="wfr-info-logo">
-      <img :src="imgurl1+wfrData.image_path" class="header_cover_img">
+    <div class="wfr-info-logo" :style="'background: url('+imgurl1+wfrData.image_path+') 0% 0% / cover no-repeat'">
       <div class="wfr-stroe-infor">
         <img :src="imgurl1+wfrData.image_path" class="wfr-stroe-infor-img">
         <div class="wfr-info-name">
@@ -116,7 +115,7 @@
     margin-bottom: .3rem;
   }
   .header_cover_img{
-    width: 150%;
+
     position: absolute;
     top: 0;
     left: 0;

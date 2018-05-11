@@ -24,7 +24,7 @@
           <div @click="wfrstoreg(key)">
             <div class="wfr-PScity-xx1">{{key.name}}</div>
             <router-link :to="{name:'Shop',query:{latitude:key.latitude,longitude:key.longitude,name:key.address}}">
-            <div class="wfr-PScity-xx2">{{key.address}}</div>
+              <div class="wfr-PScity-xx2">{{key.address}}</div>
             </router-link>
           </div>
         </li>
@@ -39,12 +39,10 @@
     </div>
   </div>
 </template>
-
 <script>
   import Vue from "vue"
   import axios from 'axios'
   import VueAxios from 'vue-axios'
-
   Vue.use(VueAxios, axios)
   export default {
     name: "city",
@@ -55,7 +53,7 @@
         value1: "",
         PScity: [],
         wfrShow: true,
-        wfrShow1:false,
+        wfrShow1: false,
         Clickcity: [],
         all11: [],
       }
@@ -78,8 +76,7 @@
           name: city.name,
           address: city.address
         }
-
-        for (var i = 0;i<this.Clickcity.length;i++) {
+        for (var i = 0; i < this.Clickcity.length; i++) {
           if (all.name == this.Clickcity[i].name) {
             return "";
           }
@@ -87,17 +84,11 @@
         if (localStorage.getItem("all") != null) {
           this.Clickcity = JSON.parse(localStorage.getItem("all"))
         }
-
-
         this.Clickcity.push(all)
-        // console.log(this.Clickcity)
-
         var d = JSON.stringify(this.Clickcity)
         localStorage.setItem('all', d);
-
-
       },
-      wfrclick(){
+      wfrclick() {
         localStorage.removeItem("all")
         this.wfrShow1 = false
       }
@@ -107,8 +98,7 @@
       this.name = this.$route.params.name
       console.log(this.Clickcity)
       this.all11 = JSON.parse(localStorage.getItem("all"))
-
-      if (this.all11 != ""){
+      if (this.all11 != "") {
         this.wfrShow1 = true
       }
     },
@@ -195,6 +185,7 @@
     /*padding:;*/
     padding: 0.1rem 0.7rem;
   }
+
   .wfr-PScity-xx1 {
     font-size: 0.7rem;
     font-weight: 300;
@@ -214,6 +205,7 @@
     border-top: 1px solid #ccc;
     padding-bottom: 0.5rem;
   }
+
   .wfr-ipt-ps {
     margin: 0.5rem 0.5rem 0.4rem 5%;
     width: 90%;

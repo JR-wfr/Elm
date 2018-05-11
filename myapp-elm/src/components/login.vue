@@ -136,7 +136,6 @@
         },2000)
       }
     },
-
     created() {
       Vue.axios.post(api1).then((response) => {
         console.log(response.data)

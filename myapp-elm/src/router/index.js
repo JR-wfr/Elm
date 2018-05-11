@@ -92,15 +92,6 @@ export default new Router({
       name: "Integral",
       component: Integral
     },{
-      path:"/VIP",
-      name:"VIP",
-      component:VIP
-    },{
-    path:"/service",
-      name:Service,
-      component:Service
-    },
-    {
       path: "/VIP",
       name: "VIP",
       component: VIP
@@ -248,6 +239,5 @@ export default new Router({
       name:"Discount",
       component:Discount
     }
-
   ]
 })
