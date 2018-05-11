@@ -46,15 +46,57 @@
           <p style="color: #999;font-size: .4rem">满 20 元可用</p>
         </div>
           <div class="ttx_list_item_right">
-            <h4 id="h1">分享红包</h4>
-            <p id="p1">2019-08-24到期</p>
-            <p id="p2">限收货手机号为 </p>
-            <p id="p3">962325513</p>
+            <h4 class="h1">分享红包</h4>
+            <p class="p1">2019-08-24到期</p>
+            <p class="p2">限收货手机号为 </p>
+            <p class="p3">962325513</p>
           </div>
           <div class="ttx_time_left">
           剩三日
           </div>
         </div>
+        </li>
+        <!---->
+        <li  class="hongbao_list_li">
+          <div  class="list_item">
+            <div  class="ttx_list_item_left">
+              <span style="color: red;">¥</span>
+              <span style="font-size: 1.5rem;color: red">2</span>
+              <span style="color: red">.</span>
+              <span style="color: red">0</span>
+              <p style="color: #999;font-size: .4rem">满 40 元可用</p>
+            </div>
+            <div class="ttx_list_item_right">
+              <h4 class="h1">分享红包</h4>
+              <p class="p1">2019-08-24到期</p>
+              <p class="p2">限收货手机号为 </p>
+              <p class="p3">962325513</p>
+            </div>
+            <div class="ttx_time_left">
+              剩三日
+            </div>
+          </div>
+        </li>
+        <!---->
+        <li  class="hongbao_list_li">
+          <div  class="list_item">
+            <div  class="ttx_list_item_left">
+              <span style="color: red;">¥</span>
+              <span style="font-size: 1.5rem;color: red">4</span>
+              <span style="color: red">.</span>
+              <span style="color: red">5</span>
+              <p style="color: #999;font-size: .4rem">满 30 元可用</p>
+            </div>
+            <div class="ttx_list_item_right">
+              <h4 class="h1">分享红包</h4>
+              <p class="p1">2019-08-24到期</p>
+              <p class="p2">限收货手机号为 </p>
+              <p class="p3">962325513</p>
+            </div>
+            <div class="ttx_time_left">
+              剩三日
+            </div>
+          </div>
         </li>
       </ul>
     </div>
@@ -145,23 +187,26 @@
     color: red;
   }
   .hongbao_list_ul{
-    /*overflow: hidden;*/
-    display: flex;
-    justify-content: space-between;
+  padding: .4rem;
+
+  }
+  .hongbao_list_li{
+    background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAIBAMAAAALs8LeAAAABGdBT…RBVAjXY5gJBwzEMScHNXpCmQIMDMwQ5jQGIKgEMyeBmJIAtqcnWdDMwKsAAAAASUVORK5CYII=) repeat-x;
+    background-size: .5rem .2rem;
+    margin-bottom: .6rem;
+    border-radius: .25rem;
+    margin-top: .7rem;
+    margin-left: .4rem;
 
   }
   .list_item{
     display: flex;
     justify-content: space-between;
+    padding: 1rem .5rem .8rem;
+    line-height: 1.5;
   }
 .ttx_list_item_left{
-  /*font-size: .7rem;*/
-  /*border-right: .025rem dotted #ccc;*/
-  /*!*-ms-flex: 1;*!*/
-  /*float: left;*/
-  /*margin-left: .7rem;*/
-  /*line-height: 1.4rem;*/
-  /*padding: 1rem;*/
+  border-right: .025rem dotted #ccc;
 }
   .ttx_list_item_right{
     /*border-right: .025rem dotted #ccc;*/
@@ -174,26 +219,29 @@
   }
   .ttx_time_left{
     /*float: left;*/
-    /*margin-left: 3rem;*/
+    margin-left: 3rem;
+    font-size: .75rem;
+    color: #ff5340;
+    margin-top: .7rem;
   }
-  #h1{
+  .h1{
     font-size: .7rem;
     color: #666;
     margin-left: .7rem;
   }
-  #p1{
+ .p1{
     /*list-style-type: disc;*/
     margin-left: .7rem;
     font-size: .4rem;
     color: #999;
   }
-  #p2{
+  .p2{
     /*list-style-type: disc;*/
     margin-left: .7rem;
     font-size: .4rem;
     color: #999;
   }
-  #p3{
+  .p3{
     /*list-style-type: disc;*/
     margin-left: .7rem;
     font-size: .4rem;
