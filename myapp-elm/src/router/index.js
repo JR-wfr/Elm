@@ -54,6 +54,8 @@ import Twenty1 from "../components/Service Centre/twenty"
 import Balance from "../components/boxes/balance"
 import Explain from "../components/boxes/explain"
 import Discount from "../components/boxes/discount"
+import Hbsm from "../components/boxes/hbsm"
+import Exchange from "../components/boxes/exchange"
 
 
 Vue.use(Router)
@@ -95,15 +97,6 @@ export default new Router({
       path:"/VIP",
       name:"VIP",
       component:VIP
-    },{
-    path:"/service",
-      name:Service,
-      component:Service
-    },
-    {
-      path: "/VIP",
-      name: "VIP",
-      component: VIP
     }, {
       path: "/service",
       name: "Service",
@@ -247,7 +240,18 @@ export default new Router({
     path:"/discount",
       name:"Discount",
       component:Discount
+    },
+    {
+      path:"/hbsm",
+      name:"Hbsm",
+      component:Hbsm
+    },
+    {
+      path:"/exchange",
+      name:"Exchange",
+      component:Exchange
     }
+
 
   ]
 })
