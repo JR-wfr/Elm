@@ -13,13 +13,11 @@ import VueAxios from 'vue-axios'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import Search from "../components/ElmShop/search"
-
 import Compt from "../components/ElmShop/compt"
 import VagName from "../components/ElmShop/vagName"
 Vue.use(ElementUI);
 Vue.use(VueAxios, axios)
 Vue.use(Router)
-
 import city from "../components/city"
 import Businesstore from "../components/ElmShop/businesstore"
 import Login from '@/components/login'
@@ -56,11 +54,8 @@ import Explain from "../components/boxes/explain"
 import Discount from "../components/boxes/discount"
 import Hbsm from "../components/boxes/hbsm"
 import Exchange from "../components/boxes/exchange"
-
-
 Vue.use(Router)
 //配置路由
-
 export default new Router({
   routes: [
     {
