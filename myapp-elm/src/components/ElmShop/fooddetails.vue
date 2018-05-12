@@ -28,7 +28,6 @@
           </svg>
         </div>
       </div>
-
       <div class="wfr-commodity-option-div1" v-if="show2">
         <span>排序</span>
         <div @click="wfrclick2" class="wfr-div1">
@@ -199,13 +198,90 @@
             </li>
           </ul>
       </div>
-
-      <div class="wfr">
-
+      <div class="wfr-business-attr" v-show="wfrshow4">
+          <p class="wfr-Commodity-distribution">配送方式</p>
+          <div class="wfr-distribution">
+            <span class="wfr-distribution-img">
+              <img src="../../assets/img/bird.png">
+              <span class="wfr-distribution-span">蜂鸟专送</span>
+            </span>
+          </div>
+          <p class="wfr-distribution-attribute">商家属性(多选)</p>
+          <ul class="wfr-distribution-ul">
+            <li class="wfr-distribution-list">
+              <span class="wfr-list-span1">
+                <span style="color: rgb(63, 189, 230);border: 1px solid rgb(63, 189, 230);border-radius: 0.2rem;padding: 0 0.08rem" v-if="wfrshow6">
+                  品
+                </span>
+                <span v-else>
+                  <img src="../../assets/img/选中.svg" class="wfr-mark">
+                </span>
+              </span>
+              <span class="wfr-list-span2" @click="wfrEvent1">品牌商家</span>
+            </li>
+            <li class="wfr-distribution-list">
+              <span class="wfr-list-span1">
+                <span style="color: rgb(153, 153, 153); border: 1px solid rgb(153, 153, 153);border-radius: 0.2rem;padding: 0 0.08rem" v-if="wfrshow7">
+                  保
+                </span>
+                <span v-else>
+                  <img src="../../assets/img/选中.svg" class="wfr-mark">
+                </span>
+              </span>
+              <span class="wfr-list-span2" @click="wfrEvent2">外卖保</span>
+            </li>
+            <li class="wfr-distribution-list">
+              <span class="wfr-list-span1">
+                <span style="color: rgb(87, 169, 255); border:1px solid rgb(87, 169, 255);border-radius: 0.2rem;padding: 0 0.08rem" v-if="wfrshow8">
+                  准
+                </span>
+                <span v-else>
+                  <img src="../../assets/img/选中.svg" class="wfr-mark">
+                </span>
+              </span>
+              <span class="wfr-list-span2" @click="wfrEvent3">准时达</span>
+            </li>
+            <li class="wfr-distribution-list">
+              <span class="wfr-list-span1">
+                <span style="color: rgb(232, 132, 45); border:1px solid  rgb(232, 132, 45);;border-radius: 0.2rem;padding: 0 0.08rem" v-if="wfrshow9">
+                  新
+                </span>
+                <span v-else>
+                  <img src="../../assets/img/选中.svg" class="wfr-mark">
+                </span>
+              </span>
+              <span class="wfr-list-span2" @click="wfrEvent4">新店</span>
+            </li>
+            <li class="wfr-distribution-list">
+              <span class="wfr-list-span1">
+                <span style="color: rgb(255, 78, 0); border:1px solid rgb(255, 78, 0);;border-radius: 0.2rem;padding: 0 0.08rem" v-if="wfrshow10">
+                  付
+                </span>
+                <span v-else>
+                  <img src="../../assets/img/选中.svg" class="wfr-mark">
+                </span>
+              </span>
+              <span class="wfr-list-span2" @click="wfrEvent5">在线支付</span>
+            </li>
+            <li class="wfr-distribution-list">
+              <span class="wfr-list-span1">
+                <span style="color: rgb(153, 153, 153); border:1px solid rgb(153, 153, 153);;border-radius: 0.2rem;padding: 0 0.08rem" v-if="wfrshow11">
+                  票
+                </span>
+                <span v-else>
+                  <img src="../../assets/img/选中.svg" class="wfr-mark">
+                </span>
+              </span>
+              <span class="wfr-list-span2" @click="wfrEvent6">开发票</span>
+            </li>
+          </ul>
+          <div class="wfr-footer-distribution">
+            <span class="wfr-footer1">清空</span>
+            <span class="wfr-footer2" @click="wfrpp">确定
+              <span v-if="conut != 0">({{conut}})</span>
+            </span>
+          </div>
       </div>
-
-
-
     </div>
     <div class="wfr-food-details" v-show="wfrshow2">
       <ul>
@@ -286,7 +362,6 @@
         </li>
       </ul>
     </div>
-
   </div>
 </template>
 <script>
@@ -297,6 +372,7 @@
         this.show2 = true;
         this.show3 = true;
         this.wfrshow1 = false;
+        this.wfrshow4 = false;
         if (this.show1 == true && this.show2 == true && this.show3 == true ) {
           this.show9 = false;
           this.show4 = false;
@@ -309,6 +385,7 @@
         this.show2 = !this.show2;
         this.show1 = true;
         this.show3 = true;
+        this.wfrshow4 = false;
         if (this.show1 == true && this.show2 == true && this.show3 == true) {
           this.show9 = false;
           this.show4 = false;
@@ -328,10 +405,11 @@
         if (this.show1 == true && this.show2 == true && this.show3 == true) {
           this.show4 = true;
           this.show9 = false;
+          this.wfrshow4 = false;
         } else {
           this.show4 = false;
           this.show9 = true;
-
+          this.wfrshow4 = true;
         }
       },
       wfrclickList($event,index) {
@@ -413,10 +491,87 @@
           }
           this.wfrAr = mess
       },
+      wfrEvent1(ev){
+        if (this.wfrshow6 == true){
+          this.wfrshow6 = false
+          this.conut ++
+          ev.currentTarget.style.color="#3190e8";
+        }else {
+          this.conut --
+          this.wfrshow6 = true
+          ev.currentTarget.style.color="";
+        }
+      },
+      wfrEvent2(ev){
+        if (this.wfrshow7 == true){
+          this.wfrshow7 = false
+          this.conut ++
+          ev.currentTarget.style.color="#3190e8";
+        }else {
+          this.conut --
+          this.wfrshow7 = true
+          ev.currentTarget.style.color="";
+        }
+      },
+      wfrEvent3(ev){
+        if (this.wfrshow8 == true){
+          this.wfrshow8 = false
+          this.conut ++
+          ev.currentTarget.style.color="#3190e8";
+        }else {
+          this.wfrshow8 = true
+          this.conut --
+          ev.currentTarget.style.color="";
+        }
+      },
+      wfrEvent4(ev){
+        if (this.wfrshow9 == true){
+          this.wfrshow9 = false
+          this.conut ++
+          ev.currentTarget.style.color="#3190e8";
+        }else {
+          this.wfrshow9 = true
+          this.conut --
+          ev.currentTarget.style.color="";
+        }
+      },
+      wfrEvent5(ev){
+        if (this.wfrshow10 == true){
+          this.wfrshow10 = false
+          this.conut ++
+          ev.currentTarget.style.color="#3190e8";
+        }else {
+          this.wfrshow10 = true
+          this.conut --
+          ev.currentTarget.style.color="";
+        }
+      },
+      wfrEvent6(ev){
+        if (this.wfrshow11 == true){
+          this.wfrshow11 = false
+          this.conut ++
+          ev.currentTarget.style.color="#3190e8";
+        }else {
+          this.wfrshow11 = true
+          this.conut --
+          ev.currentTarget.style.color="";
+        }
+      },
+      wfrpp(){
+        this.show9 = false
+      }
     },
     name: "fooddetails",
     data() {
       return {
+        wfrshow7:true,
+        wfrshow8:true,
+        wfrshow9:true,
+        wfrshow10:true,
+        wfrshow11:true,
+        wfrshow5:false,
+        wfrshow6:true,
+        conut:"",
         wangdata:[],
         wfrTag:false,
         data1: "",
@@ -446,6 +601,7 @@
         wfrAr:[],
         wfrshuzu:[],
         wangindex:"",
+        wfrshow4:false,
         wfrshuzu:[{
           img:require("../../assets/img/img4.png"),
           name:"智能排序"
@@ -464,7 +620,7 @@
         },{
           img:require("../../assets/img/img3.png"),
           name:"评分最高"
-        }]
+        }],
       }
     },
     created(){
@@ -474,6 +630,7 @@
       var api10 = `http://cangdu.org:8001/shopping/restaurants?latitude=${this.latitude}&longitude=${this.latitude}`;
       this.axios.get(api10).then((res) => {
         this.wfrArr = res.data;
+        console.log(this.wfrArr)
       });
       let api8 = "http://cangdu.org:8001/shopping/v2/restaurant/category";
       this.axios.get(api8).then((res) => {
@@ -505,6 +662,115 @@
   }
 </script>
 <style scoped>
+  .wfr-mark{
+    width: 0.6rem;
+    height: 0.6rem;
+  }
+  .wfr-footer-distribution .wfr-footer2{
+    background-color: #56d176;
+    color: #fff;
+    font-weight: 200;
+    border: .025rem solid #56d176;
+  }
+  .wfr-footer2, .wfr-footer1{
+    text-align: center;
+    width: 46%;
+    height: 1.7rem;
+    line-height: 1.7rem;
+    margin-left: 0.3rem;
+    display: inline-block;
+    background-color: #fff;
+    border: .025rem solid #fff;
+    border-radius: 0.2rem;
+  }
+  .wfr-footer-distribution{
+    height: 1.8rem;
+    margin-top:0.5rem;
+    padding: .4rem 0.1rem;
+    background-color:#f1f1f1;
+  }
+  .wfr-list-span2{
+    height: 1rem;
+    font-size: .4rem;
+    color:#666;
+    display: inline-block;
+    line-height: 1rem;
+  }
+  .wfr-list-span1{
+    width: 1rem;
+    height: 1rem;
+    line-height: 1rem;
+    display: inline-block;
+    margin: 0 0 .3rem 0.1rem;
+    font-size: .4rem;
+    transform:scale(0.9);
+  }
+  .wfr-distribution-attribute{
+    font-size: .4rem;
+    color: #666;
+    line-height: 1.5rem;
+    height: 1.5rem;
+    text-align: left;
+    padding-left: .5rem;
+    background-color: #fff;
+  }
+  .wfr-distribution{
+    margin-left: 0.4rem;
+  }
+  .wfr-distribution-img{
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    border: .025rem solid #eee;
+    width: 5rem;
+    height: 1.4rem;
+    margin-right: .25rem;
+    border-radius: .125rem;
+    padding: 0 .25rem;
+    margin-bottom: .25rem;
+  }
+  .wfr-distribution-img img{
+    width: 1rem;
+    height: 1rem;
+  }
+  .wfr-distribution-span{
+    font-size: 0.5rem;
+    color: #666;
+  }
+  .wfr-distribution-svg svg{
+    width: 1rem;
+    height: 1rem;
+  }
+  .wfr-Commodity-distribution{
+    font-size: .4rem;
+    color: #333;
+    line-height: 1.5rem;
+    height: 1.5rem;
+    text-align: left;
+    padding-left: .5rem;
+    background-color: #fff;
+    -webkit-font-smoothing: revert;
+  }
+  .wfr-distribution-ul{
+    margin-left: 0.5rem;
+    width: 100%;
+    overflow: hidden;
+  }
+  .wfr-distribution-list{
+    width: 28%;
+    float: left;
+    height: 1rem;
+    border:1px #f1f1f1 solid;
+    padding: 0.1rem;
+    margin: .2rem .1rem;
+  }
+  .wfr-business-attr{
+    width: 100%;
+    height: 10.5rem;
+    background-color: white;
+    margin-top: 3.4rem;
+    animation:wfrkey 0.4s;
+  }
   .wfr-lookup-img{
     width: 1.06rem;
     height: 1.06rem;
