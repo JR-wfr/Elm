@@ -26,6 +26,93 @@
       <div>
       </div>
     </div>
+    <!--顶部下的-->
+    <div class="change_show_type">
+      <div id="ttx_id3" :class="{ttx_choosed:ttx_show3}" @click="ttxLy">
+        商品
+      </div>
+      <div id="ttx_id4" :class="{ttx_choosed:ttx_show4}" @click="ttxLx">
+        评价
+      </div>
+
+    </div>
+    <!--商品-->
+    <div class="food_container" v-show="ttx_show1">
+    <div class="menu_container">
+      <div id="wrapper_menu">
+      <ul class="ttx_ul1">
+        <li class="menu_left_li_activity_menu">
+          <img src="https://fuss10.elemecdn.com/5/da/3872d782f707b4c82ce4607c73d1ajpeg.jpeg" alt="">
+          <span>热销榜</span>
+          <span class="category_num">40</span>
+        </li>
+        <li class="menu_left_li">
+          <img src="https://fuss10.elemecdn.com/4/73/5c4342691749b8e1a531149a46117jpeg.jpeg" alt="">
+          <span>优惠</span>
+        </li>
+        <li class="menu_left_li">
+          <span>饮料</span>
+        </li>
+        <li class="menu_left_li">
+          <span>单点</span>
+        </li>
+        <li class="menu_left_li">
+          <span>新品</span>
+        </li>
+        <li class="menu_left_li">
+          <span>测试</span>
+        </li>
+        <li class="menu_left_li">
+          <span>qqq</span>
+        </li>
+        <li class="menu_left_li">
+          <span>测试</span>
+        </li>
+        <li class="menu_left_li">
+          <span>测试</span>
+        </li>
+        <li class="menu_left_li">
+          <span>测试</span>
+        </li>
+        <li class="menu_left_li">
+          <span>测试</span>
+        </li>
+        <li class="menu_left_li">
+          <span>测试</span>
+        </li>
+        <li class="menu_left_li">
+          <span>测试</span>
+        </li>
+        <li class="menu_left_li">
+          <span>测试</span>
+        </li>
+        <li class="menu_left_li">
+          <span>测试</span>
+        </li>
+        <li class="menu_left_li">
+          <span>测试</span>
+        </li>
+        <li class="menu_left_li">
+          <span>测试</span>
+        </li>
+        <li class="menu_left_li">
+          <span>测试</span>
+        </li>
+      </ul>
+      </div>
+      <!--right-->
+      <div class="menu_right">
+      <header class="">
+        <div class="menu_detail_header_left">
+          <strong class="menu_item_title">新品</strong>
+          <span class="menu_item_description"></span>
+        </div>
+      </header>
+      </div>
+    </div>
+    </div>
+    <!--评价-->
+    <div v-show="ttx_show2">这是评价界面</div>
   </div>
 </template>
 
@@ -37,6 +124,11 @@
             shopid:"",
             wfrData:"",
             imgurl1: "//elm.cangdu.org/img/",
+            ttx_show1:true,
+            ttx_show2:false,
+            ttx_show3:true,
+            ttx_show4:false
+
           }
         },
         created(){
@@ -46,11 +138,46 @@
             this.wfrData = responent.data
             console.log(this.wfrData)
           })
+        },
+        methods:{
+         ttxLy(ev){
+            if (this.ttx_show3==true||this.ttx_show1==true){
+              this.ttx_show1 = true;
+              this.ttx_show2=false;
+              this.ttx_show4 = false;
+              this.ttx_show3 = true;
+            }else {
+              this.ttx_show1 = true;
+              this.ttx_show2=false;
+              this.ttx_show4 = false;
+              this.ttx_show3 = true;
+            }
+          },
+          ttxLx(){
+            if (this.ttx_show2 == true||this.ttx_show1==true){
+              this.ttx_show2 = true;
+              this.ttx_show1=false;
+              this.ttx_show3 = false;
+              this.ttx_show4 = true;
+            }else {
+              this.ttx_show2 = true;
+              this.ttx_show1=false;
+              this.ttx_show3 = false;
+              this.ttx_show4 = true;
+            }
+          }
         }
+
     }
 </script>
 
 <style scoped>
+  #ttx_id3{
+margin-top: .3rem;
+  }
+  #ttx_id4{
+    margin-top: .3rem;
+  }
   .cart_icon{
     fill: black;
     position: absolute;
@@ -143,5 +270,77 @@
     top: 0.3rem;
     left: 0.5rem;
     z-index: 10;
+  }
+  .change_show_type{
+    display: flex;
+    background-color: #fff;
+    padding: .3rem 0 .6rem;
+    border-bottom: 1px solid #ebebeb;
+    justify-content: space-around;
+  }
+  .activity_show{
+    color: #3190e8;
+    border-color: red;
+  }
+  .food_container{
+    display: flex;
+    flex: 1;
+    padding-bottom: 2rem;
+  }
+  .menu_container{
+    display: flex;
+    flex: 1;
+    position: revert;
+  }
+  #wrapper_menu{
+    width: 3.8rem;
+  }
+  #ttx_ul1{
+    transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition-duration: 0ms;
+    transform: translate(0px, 0px) translateZ(0px);
+  }
+  .menu_left_li_activity_menu{
+    border-left: .15rem solid #3190e8;
+    background-color: #fff;
+    padding: 1rem .4rem;
+  }
+  .menu_left_li_activity_menu img{
+    width: .5rem;
+    height: .6rem;
+  }
+  .menu_left_li_activity_menu span{
+    font-size: .6rem;
+    color: #666;
+  }
+  .category_num{
+    position: absolute;
+    top: .1rem;
+    right: .1rem;
+    background-color: #ff461d;
+    line-height: .6rem;
+    text-align: center;
+    border-radius: 50%;
+    border: .025rem solid #ff461d;
+    /* min-width: .6rem; */
+    /* height: .6rem; */
+    /* font-size: .5rem; */
+    color: #fff;
+    font-family: Helvetica Neue,Tahoma,Arial;
+  }
+  .menu_left_li{
+    padding: .7rem .3rem;
+    border-bottom: .025rem solid #ededed;
+    /* box-sizing: border-box; */
+    border-left: .15rem solid #f8f8f8;
+    position: relative;
+  }
+  .menu_left_li img{
+    width: .5rem;
+    height: .6rem;
+  }
+  .menu_left_li span{
+    font-size: .6rem;
+    color: #666;
   }
 </style>
