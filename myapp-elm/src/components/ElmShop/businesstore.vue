@@ -238,6 +238,12 @@
             </ul>
           </div>
         </div>
+
+    <!--顶部下的-->
+    <div class="change_show_type">
+      <div id="ttx_id3" :class="{ttx_choosed:ttx_show3}" @click="ttxLy">
+        商品
+
       </div>
     </div>
     <div class="wnn" v-show="jj">
@@ -329,9 +335,11 @@
         </ul>
 
       </div>
-
     </div>
+
   </div>
+    </div>
+</div>
 </template>
 <script>
   import Vue from "vue";
@@ -1041,6 +1049,11 @@
     float: right;
   }
 
+
+
+
+
+
   .wfr-vv svg {
     width: 1.3rem;
     height: 1.3rem;
@@ -1265,6 +1278,11 @@
     border: 1px solid #ccc;
   }
 
+
+
+
+
+
   .wfr-111 {
     position: absolute !important;
     top: -3rem !important;
@@ -1324,7 +1342,6 @@
     line-height: 1.5rem;
     overflow: hidden;
   }
-
   .wfr-norms1-span3 {
     display: block;
     padding: 0 0.3rem;
@@ -1492,6 +1509,12 @@
     font-weight: 400;
     font-size: 0.5rem;
   }
+
+
+
+
+
+
 
   .wang-nn-float {
     overflow: hidden;
@@ -1715,6 +1738,12 @@
     border-left: .15rem solid #f8f8f8;
     position: relative;
   }
+
+
+
+
+
+
 
   .wfrWareSpan2,
   .wfrWareSpan1 {
@@ -1949,4 +1978,5 @@
     font-size: .6rem;
     color: #666;
   }
+
 </style>

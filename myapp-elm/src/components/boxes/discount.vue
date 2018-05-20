@@ -1,10 +1,10 @@
-<template>
+ <template>
   <div>
     <div class="ttx_discount">
       <!--顶部-->
       <header class="ttx_head_top">
         <section class="ttx_head_goback">
-          <router-link to="/balance">
+          <router-link to="/personal">
             <svg class="ttx_head_sev">
               <polyline points="12,18 4,9 12,0" style="fill: none; stroke: rgb(255, 255, 255); stroke-width: 2px;">
 
@@ -101,20 +101,27 @@
             </div>
             <footer class="list_item_footer">
               <p id="p5">限品类：快餐便当、特色菜系、小吃夜宵、甜品饮品、异国料理</p>
+
+              <span class="check_history">
+                <router-link to="/history">
+                查看历史红包 >
+                   </router-link>
+              </span>
+
             </footer>
+
           </li>
         </ul>
 
         <!--底部-->
         <div class="history_hongbao">
-          <span class="check_history">查看历史红包 ></span>
           <footer class="hongbao_footer">
             <router-link to="/exchange">
-            <div class="hongbao_style">兑换红包</div>
+            <div style="margin-left: 2rem" class="hongbao_style">兑换红包</div>
             </router-link>
-
+              <router-link to="/recommend">
             <div class="hongbao_style">推荐有奖</div>
-
+              </router-link>
           </footer>
         </div>
       </div>
@@ -264,12 +271,6 @@
   #s2 {
     color: red;
   }
-
-  .hongbao_list_ul {
-    padding: .4rem;
-
-  }
-
   .hongbao_list_li {
     background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAIBAMAAAALs8LeAAAABGdBT…RBVAjXY5gJBwzEMScHNXpCmQIMDMwQ5jQGIKgEMyeBmJIAtqcnWdDMwKsAAAAASUVORK5CYII=) repeat-x;
     background-size: .5rem .2rem;
@@ -284,6 +285,9 @@
     justify-content: space-between;
     padding: 1rem .5rem .8rem;
     line-height: 1.5;
+    background: url("#fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAIBAMAAAALs8LeAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAeUExURUxpcf9TQf9aS/9TQP9TQP9TQv9TQf9UQP9bSP9TQCdGiZQAAAAJdFJOUwBPEZzKPX2/HKJFz58AAAAkSURBVAjXY5gJBwzEMScHNXpCmQIMDMwQ5jQGIKgEMyeBmJIAtqcnWdDMwKsAAAAASUVORK5CYII=) repeat-x") repeat-x;
+    background-size: .7rem;
+
   }
 
   .ttx_list_item_left {
@@ -340,10 +344,11 @@
   .hongbao_footer {
     position: fixed;
     bottom: 0;
+    display: flex;
     width: 100%;
     background-color: #fff;
-    display: -ms-flexbox;
-    display: flex;
+
+    /*display: flex;*/
   }
 
   .hongbao_style {
@@ -352,6 +357,7 @@
     text-align: center;
     font-size: .7rem;
     color: #555;
+    margin-left: 5rem
   }
 
   .history_hongbao {
@@ -368,7 +374,10 @@
   .check_history {
     font-size: .5rem;
     color: #999;
-    margin-right: .2rem;
+   /*text-align: center;*/
+    margin-left: 4rem;
+
+
   }
   #imgs1{
     width: .6rem;
