@@ -94,7 +94,14 @@ export default new Router({
     {
       path: "/store",
       name: "Businesstore",
-      component: Businesstore
+      component: Businesstore,
+      children:[
+        {
+          path:"/settlement",
+          name:"Settlement",
+          component:Settlement
+        }
+      ]
     },
     {
       path: "/details",
@@ -273,10 +280,5 @@ export default new Router({
       name:"Download",
       component:Download
     },
-    {
-      path:"/settlement",
-      name:"Settlement",
-      component:Settlement
-    }
   ]
 })
