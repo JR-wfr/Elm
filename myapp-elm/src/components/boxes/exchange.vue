@@ -27,9 +27,9 @@
       </div>
     </div>
   </form>
-  <div :class="[{ determine1: isActive }, {determine2:Active}]">兑换</div>
+  <div :class="[{ determine1: isActive }, {determine2:Active}]" @click="tx">兑换</div>
   <!--弹框-->
-  <div class="alet_container">
+  <div v-if="show" class="alet_container">
     <div class="tip_text_container">
       <div class="tip_icon" >
         <span id="ttx_sp1"></span>
@@ -39,6 +39,7 @@
       <div @click="ttx_123" class="confrim">确认</div>
     </div>
   </div>
+
 </div>
 
 </template>
@@ -51,7 +52,7 @@
          wfrVm:"",
          isActive:true,
          Active:false,
-         ttx_123:false
+         show:false
        }
       },
         name:"exchange",
@@ -70,8 +71,11 @@
             this.Active = false;
           }
         },
-        ttx_qr(){
-
+        ttx_123(){
+       this.show=false
+        },
+        tx(){
+          this.show=true
         }
       }
 
