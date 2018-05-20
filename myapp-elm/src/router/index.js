@@ -25,7 +25,7 @@ import Shop from "../components/ElmShop/shop"
 import FoodDetails from "../components/ElmShop/fooddetails"
 import service from "../components/service/service"
 //购物车结算
-import Settlement from "../components/boxes/settlement"
+import settlement from "../components/boxes/settlement"
 //服务中心的路由personal
 import One from "../components/Service Centre/one"
 import Two from "../components/Service Centre/two"
@@ -95,13 +95,11 @@ export default new Router({
       path: "/store",
       name: "Businesstore",
       component: Businesstore,
-      children:[
-        {
-          path:"/settlement",
-          name:"Settlement",
-          component:Settlement
-        }
-      ]
+    },
+    {
+      path:"/settlement",
+      name:"settlement",
+      component:settlement
     },
     {
       path: "/details",

@@ -3,15 +3,17 @@
     <header class="ttx_head_top">
       <section class="ttx_head_goback">
       <span class="head_login">
-        <span class="login_span">登录|注册</span>
+        <router-link :to="{name:'login'}">
+          <span class="login_span">登录|注册</span>
+        </router-link>
       </span>
-        <router-link to="/service">
+        <div @click="wfruiclick">
           <svg class="ttx_head_sev">
             <polyline points="12,18 4,9 12,0" style="fill: none; stroke: rgb(255, 255, 255); stroke-width: 2px;">
 
             </polyline>
           </svg>
-        </router-link>
+        </div>
       </section>
       <section class="ttx_title_head_ellipsis">
         <span class="ttx_title_text">确认订单</span>
@@ -110,7 +112,12 @@
 
 <script>
   export default {
-    name: "settlement"
+    name: "settlement",
+    methods:{
+      wfruiclick(){
+        this.$router.go(-1);
+      }
+    }
   }
 </script>
 
@@ -182,8 +189,7 @@
     width: .6rem;
     height: .6rem;
     fill: #999;
-    margin-left: 7rem;
-
+    margin-left: 10rem;
   }
 
   .delivery_model {

@@ -776,7 +776,7 @@
         this.$router.go(-1);
       },
       tiaozhuan(){
-        this.$router.push({name:"Settlement"})
+        this.$router.push({name:"settlement"})
       }
     }
   }
@@ -784,16 +784,18 @@
 <style scoped>
   .wfr-logo-back{
     text-align: center;
-    width: 3rem;
-    height: 2rem;
-    line-height: 2rem;
+    width: 2.5rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
     display: inline-block;
     position: absolute;
-    right: -20%;
-    top: -.5rem;
+    right: -45%;
+    top: -.1rem;
     -webkit-font-smoothing: antialiased;
     font-size: 0.3rem;
     transform: scale(0.8);
+    border: 1px solid #ccc;
+    border-radius: 1rem;
   }
   .ttx_top img{
     width: 4rem;
