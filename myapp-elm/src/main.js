@@ -10,7 +10,8 @@ Vue.use(VueAwesomeSwiper)
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
-
+import Vuex from "vuex"
+Vue.use(Vuex)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
