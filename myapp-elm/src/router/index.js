@@ -24,7 +24,9 @@ import Login from '@/components/login'
 import Shop from "../components/ElmShop/shop"
 import FoodDetails from "../components/ElmShop/fooddetails"
 import service from "../components/service/service"
-//服务中心的路由
+//购物车结算
+import Settlement from "../components/boxes/settlement"
+//服务中心的路由personal
 import One from "../components/Service Centre/one"
 import Two from "../components/Service Centre/two"
 import Three from "../components/Service Centre/three"
@@ -47,6 +49,7 @@ import Eighteen from "../components/Service Centre/eighteen"
 import Nineteen from "../components/Service Centre/nineteen"
 import Twenty from "../components/Service Centre/twenty-one"
 import Twenty1 from "../components/Service Centre/twenty"
+import Download from "../components/boxes/download"
 
 //boxes
 import Balance from "../components/boxes/balance"
@@ -54,10 +57,24 @@ import Explain from "../components/boxes/explain"
 import Discount from "../components/boxes/discount"
 import Hbsm from "../components/boxes/hbsm"
 import Exchange from "../components/boxes/exchange"
+import Mypoints from "../components/boxes/mypoints"
+import Recommend from  "../components/boxes/recommend"
+import  History from  "../components/boxes/history"
 Vue.use(Router)
 //配置路由
 export default new Router({
+
   routes: [
+    {
+      path:"/recommend",
+      name:"Recommend",
+      component:Recommend
+    },
+    {
+      path:"/history",
+      name:"History",
+      component:History
+    },
     {
       path: '/',
       name: 'HomePage',
@@ -103,22 +120,22 @@ export default new Router({
       component: Compt,
       children: [
         {
-          path: "shop",
+          path: "/shop",
           name: "Shop",
           component: Shop
         },
         {
-          path: "serach",
+          path: "/serach",
           name: "Search",
           component: Search
         },
         {
-          path: "order",
+          path: "/order",
           name: "Order1",
           component: Order1
         },
         {
-          path: 'personal',
+          path: '/personal',
           name: 'Personal',
           component: Personal
 
@@ -245,6 +262,21 @@ export default new Router({
       path:"/exchange",
       name:"Exchange",
       component:Exchange
+    },
+    {
+      path:"/mypoints",
+      name:"Mypoints",
+      component:Mypoints
+    },
+    {
+      path:"/download",
+      name:"Download",
+      component:Download
+    },
+    {
+      path:"/settlement",
+      name:"Settlement",
+      component:Settlement
     }
   ]
 })

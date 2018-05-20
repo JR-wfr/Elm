@@ -4,10 +4,12 @@
       <!--蓝色区域-->
       <header class="ttx_head_top">
         <section class="ttx_head_goback">
+          <router-link to="/personal">
           <svg class="ttx_head_sev" xmlns="http://www.w3.org/2000/svg" version="1.1">
             <polyline points="12,18 4,9 12,0" style="fill: none; stroke: rgb(255, 255, 255);stroke-width: 2px;">
             </polyline>
           </svg>
+          </router-link>
         </section>
         <section class="ttx_head_ell">
           <span class="ttx_title_text">我的</span>
@@ -59,10 +61,12 @@
           <!--第三个框-->
           <div class="Grid-cell">
             <ul class="ttx_clear">
+              <router-link to="/mypoints">
               <li class="ttx_info-data-link">
                 <span class="info-data-top"><b id="ttx_green">0</b>分</span>
                 <span class="info-data-bottom">我的积分</span>
               </li>
+              </router-link>
             </ul>
           </div>
         </div>
@@ -100,11 +104,13 @@
           </a>
           </router-link>
           <!--下载app-->
+          <router-link to="/download">
           <a class="ttx_myorder" href="##">
             <div class="el-icon-upload"></div>
             <div class="ttx_myorder-div"><span>下载饿了么APP</span></div>
 
           </a>
+          </router-link>
         </div>
     </div>
   </div>
