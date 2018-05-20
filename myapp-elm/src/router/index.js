@@ -60,6 +60,7 @@ import Exchange from "../components/boxes/exchange"
 import Mypoints from "../components/boxes/mypoints"
 import Recommend from  "../components/boxes/recommend"
 import  History from  "../components/boxes/history"
+import Info from "../components/boxes/info"
 Vue.use(Router)
 //配置路由
 export default new Router({
@@ -278,5 +279,10 @@ export default new Router({
       name:"Download",
       component:Download
     },
+    {
+      path:"info",
+      name:"Info",
+      component:Info
+    }
   ]
 })

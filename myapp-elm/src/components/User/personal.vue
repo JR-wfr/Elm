@@ -16,15 +16,29 @@
       <div>
         <div class="ttx_profile-number">
           <div class="ttx_profile1">
-            <div class="ttx_portrait">
-              <img id="ttx_imgs" src="../../assets/img/1.png" alt="">
+            <div  v-if="ttobj1.phone==''"class="ttx_portrait">
+              <img class="ttx_imgs" src="../../assets/img/1.png" alt="">
             </div>
+            <div v-else class="ttx_portrait">
+              <img class="ttx_imgs" src="../../assets/img/2.jpg" alt="">
+            </div>
+
+
             <div class="ttx_user-info">
-              <p class="ttx_user-info-p">登录/注册</p>
-              <p class="ttx_user-info-p1">
-                <svg t="1526807466859" class="icon333" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3307" xmlns:xlink="http://www.w3.org/1999/xlink" width="128" height="128"><path d="M704 128v768H320V128h384m0-64H320c-35.2 0-64 28.8-64 64v768c0 35.2 28.8 64 64 64h384c35.2 0 64-28.8 64-64V128c0-35.2-28.8-64-64-64zM272 192v64h480v-64H272z m0 576h480v-64H272v64z m176 96h128v-64H448v64z" p-id="3308" fill="#ffffff"></path></svg>
-                 <span class="icon334">暂无绑定手机号</span>
-              </p>
+              <div v-if="ttobj1.phone==''">
+                <p class="ttx_user-info-p">登录/注册</p>
+                <p class="ttx_user-info-p1">
+                  <svg t="1526807466859" class="icon333" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3307" xmlns:xlink="http://www.w3.org/1999/xlink" width="128" height="128"><path d="M704 128v768H320V128h384m0-64H320c-35.2 0-64 28.8-64 64v768c0 35.2 28.8 64 64 64h384c35.2 0 64-28.8 64-64V128c0-35.2-28.8-64-64-64zM272 192v64h480v-64H272z m0 576h480v-64H272v64z m176 96h128v-64H448v64z" p-id="3308" fill="#ffffff"></path></svg>
+                  <span class="icon334">暂无绑定手机号</span>
+                </p>
+              </div>
+              <div v-else>
+                <p class="ttx_user-info-p">{{ttobj1.phone}}</p>
+                <p class="ttx_user-info-p1">
+                  <svg t="1526807466859" class="icon333" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3307" xmlns:xlink="http://www.w3.org/1999/xlink" width="128" height="128"><path d="M704 128v768H320V128h384m0-64H320c-35.2 0-64 28.8-64 64v768c0 35.2 28.8 64 64 64h384c35.2 0 64-28.8 64-64V128c0-35.2-28.8-64-64-64zM272 192v64h480v-64H272z m0 576h480v-64H272v64z m176 96h128v-64H448v64z" p-id="3308" fill="#ffffff"></path></svg>
+                  <span class="icon334">暂无绑定手机号</span>
+                </p>
+              </div>
               <p @click="ttxDD">
                 <svg t="1526808122301" class="icon6666" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="967" xmlns:xlink="http://www.w3.org/1999/xlink" width="128" height="128"><path d="M492.675886 904.817574L885.696074 511.797385 492.675886 118.777197c-12.258185-12.258185-12.432147-32.892131 0.187265-45.51052 12.707416-12.707416 32.995485-12.703323 45.511543-0.187265l411.660734 411.660734c7.120165 7.120165 10.163477 17.065677 8.990768 26.624381 1.500167 9.755178-1.5104 20.010753-8.990768 27.491121L538.374694 950.515359c-12.258185 12.258185-32.892131 12.432147-45.511543-0.187265-12.707416-12.707416-12.703323-32.995485-0.187265-45.51052z" p-id="968" fill="#ffffff"></path></svg>
               </p>
@@ -39,7 +53,10 @@
                 <!--余额-->
                 <router-link to="/balance">
                   <li class="ttx_info-data-link">
-                    <span class="info-data-top"><b id="ttx_blue">0.00</b>元</span>
+                    <span class="info-data-top">
+                      <b v-if="ttobj1.phone !=''" id="ttx_blue1">10000</b>
+                      <b v-else id="ttx_blue">0.00</b>
+                      元</span>
                     <span class="info-data-bottom">我的余额</span>
                   </li>
                 </router-link>`
@@ -50,7 +67,10 @@
               <ul class="ttx_clear">
                 <router-link to="/discount">
                   <li class="ttx_info-data-link">
-                    <span class="info-data-top"><b id="ttx_red">0</b>个</span>
+                    <span class="info-data-top">
+                      <b v-if="ttobj1.phone !=''" class="ttx_red">5</b>
+                      <b v-else class="ttx_red">0</b>
+                      个</span>
                     <span class="info-data-bottom">我的优惠</span>
                   </li>
                 </router-link>
@@ -61,7 +81,10 @@
               <ul class="ttx_clear">
                 <router-link to="/mypoints">
                   <li class="ttx_info-data-link">
-                    <span class="info-data-top"><b id="ttx_green">0</b>分</span>
+                    <span class="info-data-top">
+                      <b v-if="ttobj1.phone !=''" class="ttx_green">35</b>
+                      <b v-else class="ttx_green">0</b>
+                      分</span>
                     <span class="info-data-bottom">我的积分</span>
                   </li>
                 </router-link>
@@ -123,14 +146,28 @@
     data() {
       return {
         value1: "",
+        ttobj1:{
+          phone:"",
+        },
+        ttobj2:{},
       }
     },
     created() {
-      this.value1 = this.$route.params.name
+      this.value1 = this.$route.params.name;
+      this.ttobj2 = JSON.parse(localStorage.getItem('key'));
+      if (this.ttobj2 != ""){
+          this.ttobj1.phone = this.ttobj2.phone
+      }
+      console.log(this.ttobj1.phone)
+
     },
     methods:{
       ttxDD(){
-        this.$router.push({name:"login"})
+        if (this.ttobj1.phone != ""){
+          this.$router.push({name:"Info"})
+        }else{
+          this.$router.push({name:"login"})
+        }
       }
     }
   }
@@ -141,8 +178,8 @@
     background-color: white;
   }
   .icon6666{
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 0.9rem;
+    height: 0.9rem;
     position: absolute;
     right: 1rem;
     top: 1rem;
@@ -245,6 +282,8 @@
     background-color: #3190e8;
     width: 100%;
     height: 1.95rem;
+    border-bottom:0.1px solid #f5f5f5;
+    -webkit-font-smoothing: antialiased;
   }
 
   .ttx_head_goback {
@@ -281,7 +320,7 @@
 
   }
 
-  #ttx_imgs {
+  .ttx_imgs {
     width: 2.5rem;
     border-radius: 50%;
     margin-left: 1rem;
@@ -326,6 +365,15 @@
     padding: .853333rem 0 .453333rem;
   }
 
+  #ttx_blue1 {
+    display: inline-block;
+    font-size: 1.2rem;
+    color: #f90;
+    font-weight: 700;
+    line-height: 1rem;
+    font-family: Helvetica Neue, Tahoma;
+
+  }
   #ttx_blue {
     display: inline-block;
     font-size: 1.2rem;
@@ -336,7 +384,7 @@
 
   }
 
-  #ttx_red {
+  .ttx_red {
     display: inline-block;
     font-size: 1.2rem;
     color: red;
@@ -345,7 +393,7 @@
     font-family: Helvetica Neue, Tahoma;
   }
 
-  #ttx_green {
+  .ttx_green {
     display: inline-block;
     font-size: 1.2rem;
     color: green;

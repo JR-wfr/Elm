@@ -57,7 +57,7 @@
     </div>
     <a class="ttx_to_forget" href="#">重置密码</a>
 <!--弹框-->
-    <div class="ttx_alet">
+    <!--<div class="ttx_alet">-->
       <section v-if="show" class="ttx_tip_container">
         <div class="ttx_tip_icon">
           <span id="ttx_span1"></span>
@@ -67,7 +67,7 @@
 
         <div @click="ttx_789" class="confrim">确认</div>
       </section>
-    </div>
+    <!--</div>-->
 
   </div>
 </template>
@@ -115,7 +115,13 @@
 
       },
       ttx_456(ev) {
-        console.log("..............")
+        console.log(this.value1);
+        var ttobj ={
+          phone:this.value1,
+          password:this.value2
+        }
+        localStorage.setItem('key', JSON.stringify(ttobj));
+        // console.log(bb)
         if (this.value1 == "" || this.value2 == "") {
           this.show = true
         } else {
@@ -213,7 +219,8 @@
     margin: 0px;
     border: none;
     color: #333;
-    height: 1.5rem;
+    height: 2rem;
+    line-height: 2rem;
     outline: none;
   }
 
@@ -259,7 +266,7 @@
     border-radius: 1.2rem;
     position: absolute;
     right: 1rem;
-    top: .3rem;
+    top: .6rem;
   }
 
   .ttx_BG1 {
@@ -321,14 +328,15 @@
     position: absolute;
     left: 9rem;
     top: 0;
-    margin-top: 2px;
+    margin-top: .3rem;
   }
 
   .ttx_change_img {
     height: 1.7rem;
+    margin-top: 0.2rem;
     position: absolute;
     left: 12rem;
-    top: 0;
+    top:0;
     font-size: .55rem;
   }
 
@@ -337,7 +345,9 @@
   }
 
   .ttx_alet {
-    position: revert;
+    position: absolute;
+    top: 7%;
+    left: 1%;
   }
 
   .ttx_tip_container {
@@ -351,9 +361,27 @@
     position: absolute;
     left: 2rem;
     top: 6.5rem;
+    animation:ttxflash 0.3s linear;
 
   }
-
+  @keyframes ttxflash{
+    0%{
+      transform: scale(1);
+      /*opacity: 0;*/
+    }
+    50%{
+      transform: scale(0.8);
+      /*opacity: 1;*/
+    }
+    75%{
+      transform: scale(1.1);
+      /*opacity: 0;*/
+    }
+    100%{
+      transform: scale(1);
+      /*opacity: 1;*/
+    }
+  }
   .ttx_tip_icon {
     width: 3rem;
     height: 3rem;
@@ -389,7 +417,7 @@
     font-size: .8rem;
     color: #fff;
     font-weight: 700;
-    margin-top: .8rem;
+    margin-top: 1.1rem;
     background-color: #4cd964;
     width: 100%;
     text-align: center;

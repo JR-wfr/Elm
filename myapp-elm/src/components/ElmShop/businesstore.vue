@@ -285,13 +285,11 @@
           </section>
         </header>
         <!--那个啥-->
-
         <ul class="tag_list_ul">
           <li class="tagActivity" v-for="(evaluates,index) in evaluate" @click="ttx996(index)"
               v-bind:class="{blue:index==class1}">{{ evaluates.name }} {{ evaluates.count }}
           </li>
         </ul>
-
         <ul class="rating_list_ul">
           <li v-for="(evaluateList,index) in evaluateList" class="rating_list_li">
             <img class="user_avatar" src="https://fuss10.elemecdn.com/1/b5/23ca27369a0eed1ce0c3fc0a5ba8bjpeg.jpeg"
@@ -301,13 +299,10 @@
                 <section class="username_star">
                   <p class="username">{{evaluateList.username}}</p>
                   <p>
-                    <!--<section class="rating_container">-->
                     <section class="star_container">
                       {{evaluateList.rating_star}}
                       <span class="time_spent_desc">按时送达</span>
                     </section>
-
-                    <!--</section>-->
                   </p>
                 </section>
                 <time class="rated_at">{{evaluateList.rated_at}}</time>
@@ -328,7 +323,6 @@
             </section>
           </li>
         </ul>
-
       </div>
     </div>
   </div>

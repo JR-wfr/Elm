@@ -16,6 +16,21 @@
 </header>
   <!--<compont></compont>-->
   <!--<router-view></router-view>-->
+  <div class="dingdan">
+    <div class="dingdan-div1">
+      <img src="../assets/img/2.jpg" alt="">
+    </div>
+    <div class="dingdan-div2">
+      <h2>尚中尚酒店鲍鱼4只(中...)</h2>
+      <p>10个小时前</p>
+      <span>订单以完成</span>
+    </div>
+  </div>
+  <p class="shangpin">鲍鱼4只 等<span>15件</span> 商品&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;共计：<span>¥9999</span></p>
+  <div class="food-song">
+    <span class="food-song-span1">相似商家</span>
+    <span class="food-song-span2">再来一单</span>
+  </div>
 </div>
 </template>
 
@@ -29,6 +44,73 @@
 </script>
 
 <style scoped>
+  .food-song-span2,.food-song-span1{
+    display: inline-block;
+    color: #3190e8;
+    font-size: .6rem;
+    border:1px solid  #3190e8;
+    padding: 0.4rem 0.4rem;
+    margin-right: 0.5rem;
+    border-radius: 0.2rem;
+  }
+  .food-song{
+    width: 50%;
+    height: 1.5rem;
+    padding: 1rem  0 0 0.3rem;
+    margin-left: 45%;
+    margin-right: 0.4rem;
+  }
+  .shangpin span{
+    font-size: 0.9rem;
+    color: #f90;
+  }
+  .shangpin{
+    /*text-align: center;*/
+    color: #333;
+    font-size: .5rem;
+    margin-left: 0.7rem;
+  }
+  .dingdan-div2 span{
+    display: inline-block;
+    margin-top: 0.4rem;
+    font-size: 0.5rem;
+    color: #999;
+    margin-left: 2.6rem;
+  }
+  .dingdan-div2 p{
+    display: inline-block;
+    margin-top: 0.4rem;
+    font-size: 0.5rem;
+    color: #999;
+  }
+  .dingdan-div3{
+    width: 2rem;
+    font-size: 0.6rem;
+  }
+  .dingdan-div1{
+    margin-left: 0.4rem;
+  }
+  .dingdan-div2{
+    margin-right: 0.6rem;
+  }
+  .dingdan-div2 h2{
+    color: black;
+    font-weight: 600;
+    font-size: .9rem;
+  }
+  .dingdan{
+    padding-top: 3rem;
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: space-around;
+    justify-items: center;
+    /*padding-left: 0.3rem;*/
+  }
+  .dingdan img{
+    width: 2rem;
+    height: 2rem;
+  }
 .ttx_order_page{
   width: 100%;
   height: 100%;
