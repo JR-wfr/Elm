@@ -1040,7 +1040,6 @@
     display: inline-block;
     float: right;
   }
-
   .wfr-vv svg {
     width: 1.3rem;
     height: 1.3rem;
@@ -1264,7 +1263,6 @@
     color: red;
     border: 1px solid #ccc;
   }
-
   .wfr-111 {
     position: absolute !important;
     top: -3rem !important;
@@ -1324,7 +1322,6 @@
     line-height: 1.5rem;
     overflow: hidden;
   }
-
   .wfr-norms1-span3 {
     display: block;
     padding: 0 0.3rem;
