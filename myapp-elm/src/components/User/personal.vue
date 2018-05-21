@@ -134,8 +134,6 @@
 
 <style scoped>
   .ttx_all {
-    width: 100%;
-    height: 100%;
     background: rgb(245, 245, 245);
   }
 
@@ -215,10 +213,10 @@
   .Grid {
     background-color: white;
     display: flex;
+    width: 100%;
   }
 
   .Grid-cell {
-
     flex: 1;
   }
 

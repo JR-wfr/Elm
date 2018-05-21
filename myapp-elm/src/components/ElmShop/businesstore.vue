@@ -238,104 +238,95 @@
             </ul>
           </div>
         </div>
-
-        <!--顶部下的-->
-        <div class="change_show_type">
-          <div id="ttx_id3" :class="{ttx_choosed:ttx_show3}" @click="ttxLy">
-            商品
-
-          </div>
-        </div>
-        <div class="wnn" v-show="jj">
-          只能在购物车中删除商品哦！
-        </div>
-        <div v-if="wfrend1" class="rating_container">
-          <section type="2"
-                   style="transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1); transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+      </div>
+    </div>
+    <div class="wnn" v-show="jj">
+      只能在购物车中删除商品哦！
+    </div>
+    <div v-if="wfrend1" class="rating_container">
+      <section type="2"
+               style="transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1); transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+      </section>
+      <div>
+        <header class="rating_header" style="background-color: white">
+          <section class="rating_header_left">
+            <p style="font-size: 1.2rem;color: #f60">4.7</p>
+            <p style="font-size: .6rem;color: #666;margin-bottom: .3rem;">综合评价</p>
+            <p style="font-size: .4rem;color: #999;">高于周边商家76.9%</p>
           </section>
-          <div>
-            <header class="rating_header" style="background-color: white">
-              <section class="rating_header_left">
-                <p style="font-size: 1.2rem;color: #f60">4.7</p>
-                <p style="font-size: .6rem;color: #666;margin-bottom: .3rem;">综合评价</p>
-                <p style="font-size: .4rem;color: #999;">高于周边商家76.9%</p>
-              </section>
-              <!--右边部分-->
-              <section class="rating_header_right">
-                <p class="p1">
-                  <span class="span1">服务态度</span>
-                  <el-rate class="ttx_01"
-                           v-model="value5"
-                           disabled
-                           show-score
-                           text-color="#ff9900"
-                           score-template="{value}">
-                  </el-rate>
-                </p>
-                <p class="p1">
-                  <span class="span1">菜品评价</span>
-                  <el-rate class="ttx_01"
-                           v-model="value6"
-                           disabled
-                           show-score
-                           text-color="#ff9900"
-                           score-template="{value}">
-                  </el-rate>
-                </p>
-                <p class="p1">
-                  <span class="span1">送达时间</span>
-                  <span class="delivery_time">分钟</span>
-                </p>
+          <!--右边部分-->
+          <section class="rating_header_right">
+            <p class="p1">
+              <span class="span1">服务态度</span>
+              <el-rate class="ttx_01"
+                       v-model="value5"
+                       disabled
+                       show-score
+                       text-color="#ff9900"
+                       score-template="{value}">
+              </el-rate>
+            </p>
+            <p class="p1">
+              <span class="span1">菜品评价</span>
+              <el-rate class="ttx_01"
+                       v-model="value6"
+                       disabled
+                       show-score
+                       text-color="#ff9900"
+                       score-template="{value}">
+              </el-rate>
+            </p>
+            <p class="p1">
+              <span class="span1">送达时间</span>
+              <span class="delivery_time">分钟</span>
+            </p>
 
-              </section>
-            </header>
-            <!--那个啥-->
+          </section>
+        </header>
+        <!--那个啥-->
 
-            <ul class="tag_list_ul">
-              <li class="tagActivity" v-for="(evaluates,index) in evaluate" @click="ttx996(index)"
-                  v-bind:class="{blue:index==class1}">{{ evaluates.name }} {{ evaluates.count }}
-              </li>
-            </ul>
+        <ul class="tag_list_ul">
+          <li class="tagActivity" v-for="(evaluates,index) in evaluate" @click="ttx996(index)"
+              v-bind:class="{blue:index==class1}">{{ evaluates.name }} {{ evaluates.count }}
+          </li>
+        </ul>
 
-            <ul class="rating_list_ul">
-              <li v-for="(evaluateList,index) in evaluateList" class="rating_list_li">
-                <img class="user_avatar" src="https://fuss10.elemecdn.com/1/b5/23ca27369a0eed1ce0c3fc0a5ba8bjpeg.jpeg"
-                     alt="">
-                <section class="rating_list_details">
-                  <header class="ttx_01">
-                    <section class="username_star">
-                      <p class="username">{{evaluateList.username}}</p>
-                      <p>
-                        <!--<section class="rating_container">-->
-                        <section class="star_container">
-                          {{evaluateList.rating_star}}
-                          <span class="time_spent_desc">按时送达</span>
-                        </section>
-
-                        <!--</section>-->
-                      </p>
+        <ul class="rating_list_ul">
+          <li v-for="(evaluateList,index) in evaluateList" class="rating_list_li">
+            <img class="user_avatar" src="https://fuss10.elemecdn.com/1/b5/23ca27369a0eed1ce0c3fc0a5ba8bjpeg.jpeg"
+                 alt="">
+            <section class="rating_list_details">
+              <header class="ttx_01">
+                <section class="username_star">
+                  <p class="username">{{evaluateList.username}}</p>
+                  <p>
+                    <!--<section class="rating_container">-->
+                    <section class="star_container">
+                      {{evaluateList.rating_star}}
+                      <span class="time_spent_desc">按时送达</span>
                     </section>
-                    <time class="rated_at">{{evaluateList.rated_at}}</time>
-                  </header>
-                  <ul class="food_img_ul">
-                    <li class="ttx_top"><img src="https://fuss10.elemecdn.com/d/c8/64033625905f0a15a2d181d53a425jpeg.jpeg"
-                                             alt=""></li>
-                    <li class="ttx_top"><img src="https://fuss10.elemecdn.com/d/c8/64033625905f0a15a2d181d53a425jpeg.jpeg"
-                                             alt=""></li>
-                  </ul>
-                  <ul class="food_name_ul">
-                    <li class="ellipsis"> {{evaluateList.food_name}}
-                    </li>
-                    <li class="ellipsis">
-                      {{evaluateList.food_name}}
-                    </li>
-                  </ul>
-                </section>
-              </li>
-            </ul>
 
-          </div>
-        </div>
+                    <!--</section>-->
+                  </p>
+                </section>
+                <time class="rated_at">{{evaluateList.rated_at}}</time>
+              </header>
+              <ul class="food_img_ul">
+                <li class="ttx_top"><img src="https://fuss10.elemecdn.com/d/c8/64033625905f0a15a2d181d53a425jpeg.jpeg"
+                                         alt=""></li>
+                <li class="ttx_top"><img src="https://fuss10.elemecdn.com/d/c8/64033625905f0a15a2d181d53a425jpeg.jpeg"
+                                         alt=""></li>
+              </ul>
+              <ul class="food_name_ul">
+                <li class="ellipsis"> {{evaluateList.food_name}}
+                </li>
+                <li class="ellipsis">
+                  {{evaluateList.food_name}}
+                </li>
+              </ul>
+            </section>
+          </li>
+        </ul>
 
       </div>
     </div>
