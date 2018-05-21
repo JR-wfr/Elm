@@ -25,7 +25,7 @@ import Shop from "../components/ElmShop/shop"
 import FoodDetails from "../components/ElmShop/fooddetails"
 import service from "../components/service/service"
 //购物车结算
-import Settlement from "../components/boxes/settlement"
+import settlement from "../components/boxes/settlement"
 //服务中心的路由personal
 import One from "../components/Service Centre/one"
 import Two from "../components/Service Centre/two"
@@ -60,6 +60,7 @@ import Exchange from "../components/boxes/exchange"
 import Mypoints from "../components/boxes/mypoints"
 import Recommend from  "../components/boxes/recommend"
 import  History from  "../components/boxes/history"
+import Info from "../components/boxes/info"
 Vue.use(Router)
 //配置路由
 export default new Router({
@@ -94,7 +95,12 @@ export default new Router({
     {
       path: "/store",
       name: "Businesstore",
-      component: Businesstore
+      component: Businesstore,
+    },
+    {
+      path:"/settlement",
+      name:"settlement",
+      component:settlement
     },
     {
       path: "/details",
@@ -274,9 +280,9 @@ export default new Router({
       component:Download
     },
     {
-      path:"/settlement",
-      name:"Settlement",
-      component:Settlement
+      path:"info",
+      name:"Info",
+      component:Info
     }
   ]
 })

@@ -124,6 +124,7 @@
 
   .alet_container {
     width: 13rem;
+    height: 10rem;
     margin: 0 auto;
     position: absolute;
     top: 8.5rem;
